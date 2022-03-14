@@ -7,6 +7,13 @@ const router = express.Router();
  */
 router.get('/', (req, res) => {
   // GET route code here
+  axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
+  .then(response => res.send(response.data))
+
+  .catch(error => {
+      console.log('error is: ', error);
+      res.sendStatus(500);
+  })
 });
 
 /**
