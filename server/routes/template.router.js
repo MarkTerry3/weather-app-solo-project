@@ -1,6 +1,8 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+require('dotenv').config();
+const axios = require('axios');
 
 /**
  * GET route template

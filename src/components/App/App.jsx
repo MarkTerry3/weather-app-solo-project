@@ -75,7 +75,8 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
-              <Redirect to="/user" />
+              // <Redirect to="/user" /> - was directing us to the home page tab, which is going to be "rebranded"
+              <Redirect to="/info" />
               :
               // Otherwise, show the login page
               <LoginPage />
