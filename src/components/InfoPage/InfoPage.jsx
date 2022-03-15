@@ -27,6 +27,8 @@ const fetchWeather = () => {
         type: "CURRENT_WEATHER_TEXT",
         payload: response.data[0].WeatherText
       })
+      console.log(temperature);
+      console.log(weatherText);
     }).catch(err => {
       console.log(err);
     })

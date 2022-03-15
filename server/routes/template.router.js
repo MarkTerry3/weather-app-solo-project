@@ -9,6 +9,8 @@ const axios = require('axios');
  */
 router.get('/', (req, res) => {
   // GET route code here
+  console.log(req.user.id);
+  
   axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
   .then(response => res.send(response.data))
 
@@ -23,6 +25,7 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
   // POST route code here
+  const user_id = req.body.userId
 });
 
 module.exports = router;
