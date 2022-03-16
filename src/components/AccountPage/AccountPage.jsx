@@ -23,7 +23,13 @@ function AccountPage() {
 
     const editAccount = () => {
         console.log('editAccount', user_id);
+
+        dispatch({
+            type: 'EDIT_ZIP_CODE',
+            payload: zipCode
+        })
         history.push('/home');
+        
     }
 
 
@@ -52,7 +58,7 @@ function AccountPage() {
         <>
             <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={handleOpen}>Edit Zip Code</Button>
             <br />
-            <Button style={{ backgroundColor: "red" }} variant="contained" onClick={deleteAccount}>Delete Acoount</Button>
+            <Button style={{ backgroundColor: "red" }} variant="contained" onClick={deleteAccount}>Delete Account</Button>
 
             <Modal
                 open={open}
@@ -73,7 +79,7 @@ function AccountPage() {
                             value={zipCode}
                             onChange={(event) => setZipCode(event.target.value)}
                         /> */}
-                        <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={deleteAccount}>Submit</Button>
+                        <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={editAccount}>Submit</Button>
                     </Typography>
                 </Box>
             </Modal>
