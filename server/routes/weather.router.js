@@ -14,7 +14,12 @@ router.get('/', (req, res) => {
   let queryText = `SELECT "location_key"
   FROM "user"
   WHERE "id" = $1;`
-  pool.query
+  pool.query(queryText, [userId])
+  .then((result) => {
+    res.send(result.rows);
+  }).catch((error) => {
+    res.sendStatus(500);
+  })
 
   // axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
   //   .then(response => res.send(response.data))
