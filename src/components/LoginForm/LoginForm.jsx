@@ -27,22 +27,25 @@ function LoginForm() {
 
 
   const fetchWeather = () => {
-    axios.get('/api/weather')
-    .then(response => {
-      console.log('weather text is', response.data[0]);
-      dispatch({
-        type: "CURRENT_TEMP",
-        payload: response.data[0].Temperature.Imperial.Value
-      })
-      dispatch({
-        type: "CURRENT_WEATHER_TEXT",
-        payload: response.data[0].WeatherText
-      })
-      // console.log(temperature);
-      // console.log(weatherText);
-    }).catch(err => {
-      console.log(err);
-    })
+    // dispatch({
+    //   type: 'SET_CURRENT_WEATHER'
+    // })
+    // axios.get('/api/weather')
+    // .then(response => {
+    //   console.log('weather text is', response.data[0]);
+    //   dispatch({
+    //     type: "CURRENT_TEMP",
+    //     payload: response.data[0].Temperature.Imperial.Value
+    //   })
+    //   dispatch({
+    //     type: "CURRENT_WEATHER_TEXT",
+    //     payload: response.data[0].WeatherText
+    //   })
+    //   // console.log(temperature);
+    //   // console.log(weatherText);
+    // }).catch(err => {
+    //   console.log(err);
+    // })
   }
 
   return (

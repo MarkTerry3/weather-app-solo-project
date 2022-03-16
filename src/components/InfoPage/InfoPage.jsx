@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import {useDispatch, useSelector} from 'react-redux';
@@ -10,30 +10,47 @@ import {useDispatch, useSelector} from 'react-redux';
 
 function InfoPage() {
 
+
+  useEffect(() => {
+    // dispatch({
+    //   type: 'SET_CURRENT_WEATHER'
+    // })
+  }, [])
+
+
+
   const dispatch = useDispatch();
   const weatherText = useSelector(store => store.currentConditions.currentWeatherText);
   const temperature = useSelector(store => store.currentConditions.currentTemp);
+  const userOne = useSelector(store => store.user.id);
+
+
 
 
 const fetchWeather = () => {
-  axios.get('/api/weather')
-    .then(response => {
-      console.log('weather text is', response.data[0]);
+  console.log('user ID is:', userOne);
+  console.log('temp is:', temperature);
+  console.log('weatherText is:', weatherText);
       dispatch({
-        type: "CURRENT_TEMP",
-        payload: response.data[0].Temperature.Imperial.Value
-      })
-      dispatch({
-        type: "CURRENT_WEATHER_TEXT",
-        payload: response.data[0].WeatherText
-      })
-      console.log(temperature);
-      console.log(weatherText);
-    }).catch(err => {
-      console.log(err);
+      type: 'SET_CURRENT_WEATHER'
     })
-    console.log(temperature);
-    console.log(weatherText);
+  // axios.get('/api/weather')
+  //   .then(response => {
+  //     console.log('weather text is', response.data[0]);
+  //     dispatch({
+  //       type: "CURRENT_TEMP",
+  //       payload: response.data[0].Temperature.Imperial.Value
+  //     })
+  //     dispatch({
+  //       type: "CURRENT_WEATHER_TEXT",
+  //       payload: response.data[0].WeatherText
+  //     })
+  //     console.log('temp is', temperature);
+  //     console.log('weatherText is', weatherText);
+  //   }).catch(err => {
+  //     console.log(err);
+  //   })
+
 
 }
 

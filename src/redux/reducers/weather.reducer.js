@@ -8,7 +8,13 @@ const currentTemp = (state = '', action) => {
 }
 
 const currentWeatherText = (state = '', action) => {
-    if (action.payload === 'CURRENT_WEATHER_TEXT') {
+    if (action.type === 'CURRENT_WEATHER_TEXT') {
+        return action.payload;
+    }else return state;
+}
+
+const fiveDayForecastAPI = (state = '', action) => {
+    if (action.type === 'FIVE_DAY_FORECAST') {
         return action.payload;
     }else return state;
 }
@@ -16,4 +22,5 @@ const currentWeatherText = (state = '', action) => {
 export default combineReducers({
     currentTemp,
     currentWeatherText,
+    fiveDayForecastAPI,
 })
