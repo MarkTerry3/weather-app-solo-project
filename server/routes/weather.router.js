@@ -15,32 +15,11 @@ router.get('/', (req, res) => {
   FROM "user"
   WHERE "id" = $1;`
   pool.query(queryText, [userId])
-  .then((result) => {
-    res.send(result.rows);
-  }).catch((error) => {
-    res.sendStatus(500);
-  })
-
-  // axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
-  //   .then(response => res.send(response.data))
-  //   .catch(error => {
-  //     console.log('error is: ', error);
-  //     res.sendStatus(500);
-  //   })
-
-
-
-  // axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
-  //   .then(response => res.send(response.data))
-
-  //   .catch(error => {
-  //     console.log('error is: ', error);
-  //     res.sendStatus(500);
-  //   })
-
-
-
-
+    .then((result) => {
+      res.send(result.rows);
+    }).catch((error) => {
+      res.sendStatus(500);
+    })
 
 
   axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
@@ -53,6 +32,25 @@ router.get('/', (req, res) => {
           res.send(weatherResponse);
         })
     })
+
+
+
+  // axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
+  //   .then(response => res.send(response.data))
+  //   .catch(error => {
+  //     console.log('error is: ', error);
+  //     res.sendStatus(500);
+  //   })
+
+
+
+  // axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
+  //   .then(response => res.send(response.data))
+
+  //   .catch(error => {
+  //     console.log('error is: ', error);
+  //     res.sendStatus(500);
+  //   })
 
 
 });
