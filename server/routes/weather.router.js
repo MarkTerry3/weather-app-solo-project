@@ -9,7 +9,12 @@ const axios = require('axios');
  */
 router.get('/', (req, res) => {
   // GET route code here
-  console.log(req.user);
+  console.log(req.user.id);
+  let userId = req.user.id;
+  let queryText = `SELECT "location_key"
+  FROM "user"
+  WHERE "id" = $1;`
+  pool.query
 
   // axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
   //   .then(response => res.send(response.data))

@@ -9,7 +9,7 @@ const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
-const weatherRouter = require('./routes/template.router.js')
+const weatherRouter = require('./routes/weather.router.js')
 
 // Body parser middleware
 app.use(bodyParser.json());
