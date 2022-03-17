@@ -51,11 +51,11 @@ router.post('/logout', (req, res) => {
 
 // delete your account
 router.delete('/delete', (req,res) => {
-  console.log('req.body is: ', req.body);
-  
-  // const userId = req.body.user.id;
-  // const queryText = `DELETE FROM "user" WHERE "id" = $1;`;
-  // pool.query(queryText, [userId])
+  console.log('Deleting user: ', req.user.id);
+  const userId = req.user.id
+
+  const queryText = `DELETE FROM "user" WHERE "id" = $1;`;
+  pool.query(queryText, [userId])
   .then(() => res.sendStatus(201))
   .catch((err) => {
     console.log('error deleting Account :', err);

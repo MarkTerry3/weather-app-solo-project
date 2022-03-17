@@ -57,26 +57,26 @@ router.get('/', (req, res) => {
 });
 
 
-// updating user Zip Code
- router.put('/:id', (req, res) => {
-  let params = req.params.id;
-  let req_user = req.user.id;
-  console.log('req,params and req.user :', params, req_user);
-  console.log('hello');
-  let queryText = `SELECT * FROM "user";`;
-  pool
-  .query(queryText, [params, req_user])
-  .then(() => res.sendStatus(201))
-  .catch((err) => {
-      console.log('Item delete failed: ', err);
-      res.sendStatus(500);
-  });
+// // updating user Zip Code
+//  router.put('/:id', (req, res) => {
+//   let params = req.params.id;
+//   let req_user = req.user.id;
+//   console.log('req,params and req.user :', params, req_user);
+//   console.log('hello');
+//   let queryText = `SELECT * FROM "user";`;
+//   pool
+//   .query(queryText, [params, req_user])
+//   .then(() => res.sendStatus(201))
+//   .catch((err) => {
+//       console.log('Item delete failed: ', err);
+//       res.sendStatus(500);
+//   });
    
-  // queryText = `UPDATE "user"
-  // SET "zip_code" = $1
-  // WHERE "id" = $2;` 
-  // endpoint functionality
-});
+//   // queryText = `UPDATE "user"
+//   // SET "zip_code" = $1
+//   // WHERE "id" = $2;` 
+//   // endpoint functionality
+// });
 
 
 

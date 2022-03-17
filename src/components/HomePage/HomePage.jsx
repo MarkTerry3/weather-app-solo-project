@@ -70,6 +70,7 @@ const fetchWeather = () => {
 
       <Button style={{backgroundColor: "teal"}}variant="contained" onClick={fetchWeather}>Current Weather</Button>
       <p>Current Temperature in Saint Paul, MN :  {temperature} and {weatherText}</p>
+      <progress value='40' max='100'>30fsdvdsv</progress>
     </div>
   );
 }

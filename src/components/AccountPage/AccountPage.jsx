@@ -34,9 +34,15 @@ function AccountPage() {
         
     }
 
-
-    const deleteAccount = () => {
+    // pass the user to the saga so we know who to delete.
+    const deleteAccount = (action) => {
+        // event.preventDefault();
         console.log('deleteAccount');
+
+        dispatch({
+            type: 'DELETE_ACCOUNT',
+            payload: user_id
+        })
     }
 
     // mui stuff you need for the modal
