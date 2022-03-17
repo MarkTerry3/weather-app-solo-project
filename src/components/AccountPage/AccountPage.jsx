@@ -61,6 +61,7 @@ function AccountPage() {
         <>
             <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={handleOpen}>Edit Zip Code</Button>
             <br />
+            <hr />
             <Button style={{ backgroundColor: "red" }} variant="contained" onClick={deleteAccount}>Delete Account</Button>
 
             <Modal

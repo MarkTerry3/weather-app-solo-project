@@ -63,7 +63,7 @@ function App() {
           </ProtectedRoute> */}
 
           <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
+            // logged in shows HomePage else shows LoginPage
             exact
             path="/home"
           >
@@ -115,12 +115,12 @@ function App() {
             }
           </Route>
 
-          <Route 
+          <ProtectedRoute
             exact
             path="/account"
           >
             <AccountPage />
-          </Route>
+            </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

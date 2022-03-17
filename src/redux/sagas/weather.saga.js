@@ -30,7 +30,7 @@ function* sendUpdatedZip (action) {
     console.log('action.payload is:', action.payload);
 
     try{
-        yield axios.put(`api/weather/${action.user_id}`, action.payload);
+        yield axios.put('api/zip/', action.payload);
     }catch{
         console.log('error send updated Zip Code');
         
