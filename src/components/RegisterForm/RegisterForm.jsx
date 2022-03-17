@@ -7,6 +7,8 @@ function RegisterForm() {
   const [zipCode, setZipCode] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
+  // const user = useSelector(store => store.user);
+  const user = useSelector(store => store.user);
 
   const registerUser = (event) => {
     event.preventDefault();
@@ -19,7 +21,15 @@ function RegisterForm() {
         zipCode: zipCode,
       },
     });
+    whoIsUser();
   }; // end registerUser
+
+
+  const whoIsUser = () => {
+    console.log('user registrationForm', user);
+    console.log('Hyello');
+  }
+
 
   return (
     <form className="formPanel" onSubmit={registerUser}>

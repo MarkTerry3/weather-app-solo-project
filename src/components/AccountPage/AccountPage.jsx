@@ -73,17 +73,15 @@ function AccountPage() {
                     <Typography id="modal-modal-title" variant="h6" component="h2">
                         Edit Zip Code
                     </Typography>
-                    <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-                        {/* <Textfield 
+                        <TextField 
                             sx={{ mt: 2}}
                             required
                             id="outlined-zipcode-input"
                             label="Zip Code"
                             value={zipCode}
                             onChange={(event) => setZipCode(event.target.value)}
-                        /> */}
+                        />
                         <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={editAccount}>Submit</Button>
-                    </Typography>
                 </Box>
             </Modal>
         </>

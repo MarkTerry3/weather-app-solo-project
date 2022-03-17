@@ -15,6 +15,7 @@ function InfoPage() {
     // dispatch({
     //   type: 'SET_CURRENT_WEATHER'
     // })
+    console.log(userLoggedIn);
   }, [])
 
 
@@ -23,6 +24,7 @@ function InfoPage() {
   const weatherText = useSelector(store => store.currentConditions.currentWeatherText);
   const temperature = useSelector(store => store.currentConditions.currentTemp);
   const userOne = useSelector(store => store.user.id);
+  const userLoggedIn = useSelector(store => store.user);
 
 
 
@@ -37,7 +39,7 @@ const fetchWeather = () => {
     console.log('temp is:', temperature);
     console.log('weatherText is:', weatherText);
 
-    
+
   // axios.get('/api/weather')
   //   .then(response => {
   //     console.log('weather text is', response.data[0]);
