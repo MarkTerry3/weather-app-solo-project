@@ -2,6 +2,7 @@ import React, {useEffect} from 'react';
 import Button from '@mui/material/Button';
 import axios from 'axios';
 import {useDispatch, useSelector} from 'react-redux';
+import './HomePage.css'
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -68,9 +69,9 @@ const fetchWeather = () => {
     <div className="container">
       <p>Home Page</p>
 
-      <Button style={{backgroundColor: "teal"}}variant="contained" onClick={fetchWeather}>Current Weather</Button>
+      <Button style={{backgroundColor: "teal"}} variant="contained" onClick={fetchWeather}>Current Weather</Button>
       <p>Current Temperature in Saint Paul, MN :  {temperature} and {weatherText}</p>
-      <progress value='40' max='100'>30fsdvdsv</progress>
+      <progress className='progressBar' value={temperature} max='100'></progress>
     </div>
   );
 }
