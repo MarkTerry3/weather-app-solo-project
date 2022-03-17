@@ -43,6 +43,8 @@ function AccountPage() {
             type: 'DELETE_ACCOUNT',
             payload: user_id
         })
+        // UNSET_USER  ????
+        history.push('/login');
     }
 
     // mui stuff you need for the modal

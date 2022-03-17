@@ -40,25 +40,6 @@ const fetchWeather = () => {
     console.log('temp is:', temperature);
     console.log('weatherText is:', weatherText);
 
-
-  // axios.get('/api/weather')
-  //   .then(response => {
-  //     console.log('weather text is', response.data[0]);
-  //     dispatch({
-  //       type: "CURRENT_TEMP",
-  //       payload: response.data[0].Temperature.Imperial.Value
-  //     })
-  //     dispatch({
-  //       type: "CURRENT_WEATHER_TEXT",
-  //       payload: response.data[0].WeatherText
-  //     })
-  //     console.log('temp is', temperature);
-  //     console.log('weatherText is', weatherText);
-  //   }).catch(err => {
-  //     console.log(err);
-  //   })
-
-
 }
 
 
@@ -67,7 +48,7 @@ const fetchWeather = () => {
 
   return (
     <div className="container">
-      <p>Home Page</p>
+      <p>Welcome, {userLoggedIn.username} !</p>
 
       <Button style={{backgroundColor: "teal"}} variant="contained" onClick={fetchWeather}>Current Weather</Button>
       <p>Current Temperature in Saint Paul, MN :  {temperature} and {weatherText}</p>
