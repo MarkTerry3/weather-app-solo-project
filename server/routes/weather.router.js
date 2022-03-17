@@ -9,18 +9,19 @@ const axios = require('axios');
  */
 router.get('/', (req, res) => {
   // GET route code here
-  console.log(req.user.id);
-  let userId = req.user.id;
-  let queryText = `SELECT "location_key"
-  FROM "user"
-  WHERE "id" = $1;`
-  pool.query(queryText, [userId])
-    .then((result) => {
-      res.send(result.rows);
-    }).catch((error) => {
-      res.sendStatus(500);
-    })
 
+  // this query text is making things not work, how do i make it so this doesnt send back to the client side? ////////////////////////////////////////////////////////////////
+  // console.log(req.user.id);
+  // let userId = req.user.id;
+  // let queryText = `SELECT "location_key"
+  // FROM "user"
+  // WHERE "id" = $1;`
+  // pool.query(queryText, [userId])
+  //   .then((result) => {
+  //     res.send(result.rows);
+  //   }).catch((error) => {
+  //     res.sendStatus(500);
+  //   })
 
   axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
     .then((conditionsResponse) => {
@@ -53,6 +54,28 @@ router.get('/', (req, res) => {
   //   })
 
 
+});
+
+
+// updating user Zip Code
+ router.put('/:id', (req, res) => {
+  let params = req.params.id;
+  let req_user = req.user.id;
+  console.log('req,params and req.user :', params, req_user);
+  console.log('hello');
+  let queryText = `SELECT * FROM "user";`;
+  pool
+  .query(queryText, [params, req_user])
+  .then(() => res.sendStatus(201))
+  .catch((err) => {
+      console.log('Item delete failed: ', err);
+      res.sendStatus(500);
+  });
+   
+  // queryText = `UPDATE "user"
+  // SET "zip_code" = $1
+  // WHERE "id" = $2;` 
+  // endpoint functionality
 });
 
 

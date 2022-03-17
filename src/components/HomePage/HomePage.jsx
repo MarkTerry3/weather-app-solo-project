@@ -28,12 +28,16 @@ function InfoPage() {
 
 
 const fetchWeather = () => {
-  console.log('user ID is:', userOne);
-  console.log('temp is:', temperature);
-  console.log('weatherText is:', weatherText);
+
       dispatch({
       type: 'SET_CURRENT_WEATHER'
     })
+
+    console.log('user ID is:', userOne);
+    console.log('temp is:', temperature);
+    console.log('weatherText is:', weatherText);
+
+    
   // axios.get('/api/weather')
   //   .then(response => {
   //     console.log('weather text is', response.data[0]);

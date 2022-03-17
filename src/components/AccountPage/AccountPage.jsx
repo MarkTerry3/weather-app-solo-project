@@ -20,14 +20,16 @@ function AccountPage() {
 
 
 
-
-    const editAccount = () => {
+    // pass the user_id and the new Zip code to the saga, to then be passed to the back end
+    const editAccount = (event) => {
+        event.preventDefault;
         console.log('editAccount', user_id);
 
         dispatch({
             type: 'EDIT_ZIP_CODE',
-            payload: zipCode
+            payload: {user_id, zipCode}
         })
+        // setZipCode('');
         history.push('/home');
         
     }
@@ -37,11 +39,12 @@ function AccountPage() {
         console.log('deleteAccount');
     }
 
-
+    // mui stuff you need for the modal
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
+    // mui styling you need
     const style = {
         position: 'absolute',
         top: '50%',
