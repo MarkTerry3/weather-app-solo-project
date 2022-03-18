@@ -50,8 +50,13 @@ function AccountPage() {
             type: 'DELETE_ACCOUNT',
             payload: user_id
         })
-        // UNSET_USER  ????
-        history.push('/login');
+        // UNSET_USER  ????  - Yes
+        dispatch({
+            type: 'UNSET_USER'
+        })
+        // code below refreshes the page
+        // document.location.reload(true);
+        history.push('/home');
     }
 
     // // mui stuff you need for the modal
@@ -70,6 +75,8 @@ function AccountPage() {
         border: '2px solid #000',
         boxShadow: 24,
         p: 4,
+        backgroundColor: "yellow",
+        color: "black"
     };
 
     const styleDelete = {
@@ -190,24 +197,7 @@ function AccountPage() {
                 </DialogActions>
             </Dialog>
             <Dialog open={openDelete} onClose={handleCloseEdit}>
-                {/* <DialogTitle>Edit Zip Code</DialogTitle>
-                    <DialogContent>
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="outlined-zipcode-input"
-                            label="New Zip Code"
-                            type="text"
-                            fullWidth
-                            variant="standard"
-                            value={zipCode}
-                            onChange={(event) => setZipCode(event.target.value)}
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleCloseEdit}>Cancel</Button>
-                        <Button onClick={editAccount}>Submit</Button>
-                    </DialogActions> */}
+
             </Dialog>
             <Dialog
                 open={openDelete}

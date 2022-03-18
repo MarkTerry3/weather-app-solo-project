@@ -9,13 +9,16 @@ function* getCurrentConditions() {
     try{
         const response = yield axios.get('/api/weather');
         console.log('response.data is: ', response.data);
+        console.log('fiveDay is: ', response.data.fiveDay.DailyForecasts);
+        
         console.log(response.data.conditions[0].Temperature.Imperial.Value);
         console.log('WeatherText is', response.data.conditions[0].WeatherText);
         
         
 
-        yield put({type: 'CURRENT_TEMP', payload:response.data.conditions[0].Temperature.Imperial.Value})
+        yield put({type: 'CURRENT_TEMP', payload: response.data.conditions[0].Temperature.Imperial.Value})
         yield put({type: 'CURRENT_WEATHER_TEXT', payload: response.data.conditions[0].WeatherText})
+        yield put({type: 'FIVE_DAY_FORECAST', payload: response.data.fiveDay.DailyForecasts})
 
         // yield put({type: 'FIVE_DAY_FORECAST', payload: weatherResponse})
         

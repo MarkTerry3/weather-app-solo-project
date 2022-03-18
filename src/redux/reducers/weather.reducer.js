@@ -13,7 +13,7 @@ const currentWeatherText = (state = '', action) => {
     }else return state;
 }
 
-const fiveDayForecastAPI = (state = '', action) => {
+const fiveDayForecastAPI = (state = [], action) => {
     if (action.type === 'FIVE_DAY_FORECAST') {
         return action.payload;
     }else return state;
