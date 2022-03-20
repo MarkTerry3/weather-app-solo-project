@@ -3,6 +3,10 @@ import Button from '@mui/material/Button';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import './HomePage.css'
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -63,6 +67,17 @@ function InfoPage() {
   }
 
 
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+  }));
+
+
+
+
 
 
 
@@ -74,10 +89,16 @@ function InfoPage() {
       <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={fetchWeather}>Current Weather</Button>
       <p>Current Temperature in Saint Paul, MN :  {temperature} and {weatherText}</p>
       <ul>
-      {fiveDayForecast.map((day, i) => {
-        return (
-          <li key={i}>{day.Date} Temperature: {day.Temperature.Maximum.Value}</li>
-        )})}
+        {fiveDayForecast.map((day, i) => {
+          return (
+            // <li key={i}>{day.Date} Temperature: {day.Temperature.Maximum.Value}</li>
+            <Box sx={{ flexGrow: 1 }}>
+              <Grid item xs={100}>
+                <Item key={i}>{day.Date}, High: {day.Temperature.Maximum.Value}, Low: {day.Temperature.Minimum.Value}</Item>
+              </Grid>
+            </Box>
+          )
+        })}
       </ul>
       {/* // <progress className='progressBar' value={temperature} max='100'></progress>
       // <iframe width="487.5" height="337.5" src="https://embed.windy.com/embed2.html?lat=44.949&lon=-93.043&detailLat=41.902&detailLon=-93.208&width=650&height=450&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=default&radarRange=-1"></iframe>
