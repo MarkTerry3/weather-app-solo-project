@@ -7,6 +7,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
+import FiveDayForecast from '../FiveDayForecasts/FiveDayForecasts';
+
 
 // This is one of our simplest components
 // It doesn't have local state
@@ -92,7 +94,7 @@ function InfoPage() {
         {fiveDayForecast.map((day, i) => {
           return (
             // <li key={i}>{day.Date} Temperature: {day.Temperature.Maximum.Value}</li>
-            <Box sx={{ flexGrow: 1 }}>
+            <Box sx={{ flexGrow: 100 }}>
               <Grid item xs={100}>
                 <Item key={i}>{day.Date}, High: {day.Temperature.Maximum.Value}, Low: {day.Temperature.Minimum.Value}</Item>
               </Grid>
@@ -100,6 +102,7 @@ function InfoPage() {
           )
         })}
       </ul>
+        <FiveDayForecast forecasts={fiveDayForecast}/>
       {/* // <progress className='progressBar' value={temperature} max='100'></progress>
       // <iframe width="487.5" height="337.5" src="https://embed.windy.com/embed2.html?lat=44.949&lon=-93.043&detailLat=41.902&detailLon=-93.208&width=650&height=450&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=default&radarRange=-1"></iframe>
       // <iframe width="487.5" height="300" src="https://embed.windy.com/embed2.html?lat=44.949&lon=-93.043&detailLat=44.784&detailLon=-93.220&width=650&height=450&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1"></iframe> */}
