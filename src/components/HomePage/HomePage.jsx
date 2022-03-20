@@ -94,15 +94,16 @@ function InfoPage() {
         {fiveDayForecast.map((day, i) => {
           return (
             // <li key={i}>{day.Date} Temperature: {day.Temperature.Maximum.Value}</li>
-            <Box sx={{ flexGrow: 100 }}>
-              <Grid item xs={100}>
-                <Item key={i}>{day.Date}, High: {day.Temperature.Maximum.Value}, Low: {day.Temperature.Minimum.Value}</Item>
-              </Grid>
-            </Box>
+            <FiveDayForecast key={i} day={day}/>
+            // <Box sx={{ flexGrow: 100 }}>
+            //   <Grid item xs={100}>
+            //     <Item key={i}>{day.Date}, High: {day.Temperature.Maximum.Value}, Low: {day.Temperature.Minimum.Value}</Item>
+            //   </Grid>
+            // </Box>
           )
         })}
       </ul>
-        <FiveDayForecast forecasts={fiveDayForecast}/>
+
       {/* // <progress className='progressBar' value={temperature} max='100'></progress>
       // <iframe width="487.5" height="337.5" src="https://embed.windy.com/embed2.html?lat=44.949&lon=-93.043&detailLat=41.902&detailLon=-93.208&width=650&height=450&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=true&marker=&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=default&radarRange=-1"></iframe>
       // <iframe width="487.5" height="300" src="https://embed.windy.com/embed2.html?lat=44.949&lon=-93.043&detailLat=44.784&detailLon=-93.220&width=650&height=450&zoom=10&level=surface&overlay=wind&product=ecmwf&menu=&message=&marker=true&calendar=now&pressure=&type=map&location=coordinates&detail=&metricWind=mph&metricTemp=%C2%B0F&radarRange=-1"></iframe> */}

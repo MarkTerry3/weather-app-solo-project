@@ -7,7 +7,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import Radio from '@mui/material/Radio';
 import Paper from '@mui/material/Paper';
 
-function FiveDayForecast({ fiveDayForecast }) {
+function FiveDayForecast({ day }) {
     const [spacing, setSpacing] = React.useState(2);
 
     const handleChange = (event) => {
@@ -22,25 +22,22 @@ function FiveDayForecast({ fiveDayForecast }) {
         <Grid sx={{ flexGrow: 1 }} container spacing={2}>
             <Grid item xs={12}>
                 <Grid container justifyContent="center" spacing={spacing}>
-                    {[0, 1, 2].map((value) => (
+                    {[0].map((value) => (
                         <Grid key={value} item>
-                            {/* {fiveDayForecast.map((day, i) => {
-                                return ( */}
-                                    <Paper
-                                        // key={i}
-                                        sx={{
-                                            height: 140,
-                                            width: 100,
-                                            backgroundColor: (theme) =>
-                                                theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-                                        }}
-                                    >
-                                        {/* {fiveDayForecast.Date} */}
-                                        
+                            <Paper
+                                sx={{
+                                    height: 140,
+                                    width: 100,
+                                    backgroundColor: (theme) =>
+                                        theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+                                }}
+                            >
+                                {day.Date}
+                                Hi: {day.Temperature.Maximum.Value}
+                                Lo: {day.Temperature.Minimum.Value}
 
-                                    </Paper>
-                                  {/* )
-                            })}  */}
+
+                            </Paper>
                         </Grid>
                     ))}
                 </Grid>
