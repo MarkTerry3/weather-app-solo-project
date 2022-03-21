@@ -67,7 +67,7 @@ function HomePage() {
         </Grid>
         <Grid item xs={8} >
           <Paper sx={{ height: '325px' }}>
-          <h2 className="userLocation"> {userLocInfo} </h2>
+          <h1 className="userLocation"> {userLocInfo} </h1>
           <h3 className="userLocation">{weatherText}</h3>
           </Paper>
         </Grid>
