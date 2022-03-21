@@ -54,16 +54,22 @@ function HomePage() {
 
   return (
     <div className="container">
-      <p className="welcomeUser">Welcome, {userLoggedIn.username} !</p>
+      <h1 className="welcomeUser">Welcome, {userLoggedIn.username} !</h1>
 
       <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={fetchWeather}>Current Weather</Button>
       <p>Current Temperature in {userLocInfo} :  {temperature} and {weatherText}</p>
-      <Grid container spacing={2} sx={{ width: '70%', height: '300px', margin: 'auto' }}>
+      <Grid container spacing={2} sx={{ width: '70%', height: '350px', margin: 'auto' }}>
         <Grid item xs={4} >
-          <Paper sx={{ height: '300px' }}>hyello Left</Paper>
+          <Paper sx={{ height: '325px' }}>
+          <h2 className="userLocation">{weatherText}</h2>
+          <h1 className="userLocation">{temperature}</h1>
+          </Paper>
         </Grid>
         <Grid item xs={8} >
-          <Paper sx={{ height: '300px' }}> hyello Right</Paper>
+          <Paper sx={{ height: '325px' }}>
+          <h2 className="userLocation"> {userLocInfo} </h2>
+          <h3 className="userLocation">{weatherText}</h3>
+          </Paper>
         </Grid>
       </Grid>
       <br />
