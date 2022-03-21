@@ -1,11 +1,23 @@
 import * as React from 'react';
-import Grid from '@mui/material/Grid';
-import FormLabel from '@mui/material/FormLabel';
-import FormControl from '@mui/material/FormControl';
-import FormControlLabel from '@mui/material/FormControlLabel';
-import RadioGroup from '@mui/material/RadioGroup';
-import Radio from '@mui/material/Radio';
+import { styled } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+
+
+
+
+
+
+
+const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'center',
+    color: theme.palette.text.secondary,
+}));
 
 function FiveDayForecast({ day }) {
     const [spacing, setSpacing] = React.useState(2);
@@ -15,18 +27,15 @@ function FiveDayForecast({ day }) {
     };
 
 
-    const jsx = `
-<Grid container spacing={${spacing}}>
-`;
+    //     const jsx = `
+    // <Grid container spacing={${spacing}}>
+    // `;
 
 
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    }));
+
+
+
+
 
     // return (
     //     <Grid sx={{ flexGrow: 1 }} container spacing={2}>
@@ -40,8 +49,8 @@ function FiveDayForecast({ day }) {
     //                                 width: 100,
     //                                 color: 'white',
     //                                 backgroundColor: '#1A2027'
-    //                                     // (theme) =>
-    //                                     //     theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    //                                 // (theme) =>
+    //                                 //     theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     //                             }}
     //                         >
     //                             {day.Date.substring(0, 10)}
@@ -54,12 +63,21 @@ function FiveDayForecast({ day }) {
     //             </Grid>
     //         </Grid>
     //     </Grid>
+
     // );
 
+
     return (
-<>
-</>
+
+                <Grid item xs={6} lg={2.4} sx={{textAlign: 'center'}}>
+                    <Paper sx={{py: 3}}>
+                    <Typography>Day: <br/>Hi:{day.Temperature.Maximum.Value} <br/>Lo:{day.Temperature.Minimum.Value}</Typography>
+                    </Paper>
+                </Grid>
+
     );
+
+
 }
 
 
