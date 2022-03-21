@@ -19,8 +19,15 @@ const fiveDayForecastAPI = (state = [], action) => {
     }else return state;
 }
 
+const userInformation = (state = '', action) => {
+    if (action.type === 'SET_USER_INFO') {
+        return action.payload;
+    }else return state;
+}
+
 export default combineReducers({
     currentTemp,
     currentWeatherText,
     fiveDayForecastAPI,
+    userInformation,
 })

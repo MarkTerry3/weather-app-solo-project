@@ -32,7 +32,7 @@ router.get('/', (req, res) => {
       axios.get(`http://dataservice.accuweather.com//locations/v1/postalcodes/search?apikey=${process.env.ACCU_API_KEY}&q=${userZip}`)
         .then((zipCodeResponse) => {
           const userLocationKey = zipCodeResponse.data[0].Key;
-          // const userCity = zipCodeResponse.data[0].LocalizedName;
+          const userCity = zipCodeResponse.data[0].LocalizedName;
           // const userLatitude = zipCodeResponse.data[0].GeoPosition.Latitude
           // const userLongitude = zipCodeResponse.data[0].GeoPosition.Longitude
           axios.get(`http://dataservice.accuweather.com/currentconditions/v1/${userLocationKey}?apikey=${process.env.ACCU_API_KEY}`)
@@ -42,6 +42,7 @@ router.get('/', (req, res) => {
                   let weatherResponse = {}
                   weatherResponse.conditions = conditionsResponse.data;
                   weatherResponse.fiveDay = fiveDayResponse.data;
+                  weatherResponse.userInfo = zipCodeResponse.data[0].LocalizedName;
                   res.send(weatherResponse);
                 })
             }).catch((error) => {

@@ -1,39 +1,19 @@
 import React, { useEffect } from 'react';
 import Button from '@mui/material/Button';
-import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import './HomePage.css'
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import FiveDayForecast from '../FiveDayForecasts/FiveDayForecasts.jsx';
 
 
-// This is one of our simplest components
-// It doesn't have local state
-// It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
 
-function InfoPage() {
 
-  //   var map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
-  //     /* No need to set credentials if already passed in URL */
-  //     center: new Microsoft.Maps.Location(39.1887643719098, -92.8261546188403),
-  //     zoom: 5
-  // });
-  // // tile url from Iowa Environmental Mesonet of Iowa State University
-  // var urlTemplate = 'https://mesonet.agron.iastate.edu/cache/tile.py/1.0.0/nexrad-n0q-{timestamp}/{zoom}/{x}/{y}.png';
-  // var timestamps = ['900913-m50m', '900913-m45m', '900913-m40m', '900913-m35m', '900913-m30m', '900913-m25m', '900913-m20m', '900913-m15m', '900913-m10m', '900913-m05m', '900913'];
-  // var tileSources = [];
-  // for (var i = 0; i < timestamps.length; i++) {
-  //     var tileSource = new Microsoft.Maps.TileSource({
-  //         uriConstructor: urlTemplate.replace('{timestamp}', timestamps[i])
-  //     });
-  //     tileSources.push(tileSource);
-  // }
-  // var animatedLayer = new Microsoft.Maps.AnimatedTileLayer({ mercator: tileSources, frameRate: 500 });
-  // map.layers.insert(animatedLayer);
+
+
+function HomePage() {
+
 
   useEffect(() => {
     // dispatch({
@@ -50,6 +30,7 @@ function InfoPage() {
   const fiveDayForecast = useSelector(store => store.currentConditions.fiveDayForecastAPI);
   const userOne = useSelector(store => store.user.id);
   const userLoggedIn = useSelector(store => store.user);
+  const userLocInfo = useSelector(store => store.currentConditions.userInformation)
 
 
   // 
@@ -69,52 +50,35 @@ function InfoPage() {
   }
 
 
-  // const Item = styled(Paper)(({ theme }) => ({
-  //   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  //   ...theme.typography.body2,
-  //   padding: theme.spacing(1),
-  //   textAlign: 'center',
-  //   color: theme.palette.text.secondary,
-  // }));
-
-
-
-
-
-
 
 
   return (
     <div className="container">
-      <p>Welcome, {userLoggedIn.username} !</p>
+      <p className="welcomeUser">Welcome, {userLoggedIn.username} !</p>
 
       <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={fetchWeather}>Current Weather</Button>
-      <p>Current Temperature in Saint Paul, MN :  {temperature} and {weatherText}</p>
-      <Paper sx={{width: '30%', margin: 'auto'}}>
-        hi
-      </Paper>
-      <Paper sx={{width: '68%', height: '100px', margin: 'auto'}}>
-        city
-      </Paper>
-      <Grid container fullWidth spacing={2} sx={{width: '70%', margin: 'auto'}}>
+      <p>Current Temperature in {userLocInfo} :  {temperature} and {weatherText}</p>
+      <Grid container spacing={2} sx={{ width: '70%', height: '300px', margin: 'auto' }}>
+        <Grid item xs={4} >
+          <Paper sx={{ height: '300px' }}>hyello Left</Paper>
+        </Grid>
+        <Grid item xs={8} >
+          <Paper sx={{ height: '300px' }}> hyello Right</Paper>
+        </Grid>
+      </Grid>
+      <br />
+      <Grid container spacing={2} sx={{ width: '70%', margin: 'auto' }}>
         {fiveDayForecast.map((day, i) => {
           return (
-            // <li key={i}>{day.Date} Temperature: {day.Temperature.Maximum.Value}</li>
-            <FiveDayForecast key={i} day={day}/>
-            // <Box sx={{ flexGrow: 100 }}>
-            //   <Grid item xs={100}>
-            //     <Item key={i}>{day.Date}, High: {day.Temperature.Maximum.Value}, Low: {day.Temperature.Minimum.Value}</Item>
-            //   </Grid>
-            // </Box>
-            
+            <FiveDayForecast key={i} day={day} />
           )
         })}
-        </Grid>
+      </Grid>
     </div>
   );
 }
 
-export default InfoPage;
+export default HomePage;
 
 
 

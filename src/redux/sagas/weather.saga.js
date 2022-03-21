@@ -19,6 +19,8 @@ function* getCurrentConditions() {
         yield put({type: 'CURRENT_TEMP', payload: response.data.conditions[0].Temperature.Imperial.Value})
         yield put({type: 'CURRENT_WEATHER_TEXT', payload: response.data.conditions[0].WeatherText})
         yield put({type: 'FIVE_DAY_FORECAST', payload: response.data.fiveDay.DailyForecasts})
+        yield put({type: 'SET_USER_INFO', payload: response.data.userInfo})
+        userInformation
 
         // yield put({type: 'FIVE_DAY_FORECAST', payload: weatherResponse})
         

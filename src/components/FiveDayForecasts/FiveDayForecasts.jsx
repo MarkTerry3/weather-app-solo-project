@@ -27,12 +27,6 @@ function FiveDayForecast({ day }) {
     };
 
 
-    //     const jsx = `
-    // <Grid container spacing={${spacing}}>
-    // `;
-
-
-
 
 
 
@@ -70,7 +64,7 @@ function FiveDayForecast({ day }) {
     return (
 
                 <Grid item xs={6} lg={2.4} sx={{textAlign: 'center'}}>
-                    <Paper sx={{py: 3}}>
+                    <Paper sx={{py: 3, color: 'white', backgroundColor: '#37485c'}}>
                     <Typography>Day: <br/>Hi:{day.Temperature.Maximum.Value} <br/>Lo:{day.Temperature.Minimum.Value}</Typography>
                     </Paper>
                 </Grid>
