@@ -110,3 +110,8 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+body {
+  background-color: #1A2027;
+  color: white;
+}
