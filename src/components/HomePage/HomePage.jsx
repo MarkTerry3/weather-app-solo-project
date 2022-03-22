@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import FiveDayForecast from '../FiveDayForecasts/FiveDayForecasts.jsx';
-import '../../weatherTextImages/mostly-clear.png'
+import Image from '../../weatherTextImages/mostly-clear.png'
 
 
 
@@ -62,6 +62,13 @@ const dayImage = () => {
 }
 
 
+const styles = {
+  paperContainer: {
+      backgroundImage: `url(${Image})`
+  }
+};
+
+
 
 
 
@@ -84,8 +91,9 @@ const dayImage = () => {
           </Paper>
         </Grid>
         <Grid item xs={8} >
+          {/* <Paper sx={{ height: '325px' }} style={styles.paperContainer}> */}
           <Paper sx={{ height: '325px' }}>
-          <h1 className="userLocation"> {userLocInfo} </h1>
+          <h1 className="userLocation"> {userLocInfo}  </h1>
           <h3 className="userLocation">{weatherText}</h3>
           </Paper>
         </Grid>
