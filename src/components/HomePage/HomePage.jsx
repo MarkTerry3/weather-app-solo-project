@@ -91,7 +91,7 @@ const styles = {
           <Paper sx={{ height: '325px'}}>
             <h1>Day Temp?</h1>
           <h2 className="userLocation">{weatherText}</h2>
-          <h1 className="userLocation">{temperature}</h1>
+          <h1 className="userLocation">{temperature}℉</h1>
           <img width="100px" src={require('../../weatherTextImages/mostly-clear.png')}/>
           <h1>Night Temp?</h1>
           </Paper>
@@ -100,11 +100,11 @@ const styles = {
           {/* <Paper sx={{ height: '325px' }} style={styles.paperContainer}> */}
           <Paper sx={{ height: '325px' }}>
           <h1 className="userLocation"> {userLocInfo}  </h1>
-          <h3 className="userLocation">{weatherText}</h3>
-          <p>Real Feel:{realFeel} F</p>
+          <h3 className="userLocation">{temperature}℉ & {weatherText}</h3>
+          <p>Real Feel:{realFeel} ℉</p>
           <p>Wind: {wind} mph</p>
-          <p>Wind Chill: {windChill} F</p>
-          <p>Humidity: {humidity} F</p>
+          <p>Wind Chill: {windChill} ℉</p>
+          <p>Humidity: {humidity} ℉</p>
           <p>Precipitation: {precipitation} in</p>
           <p>Visibility: {visibility} mi</p>
           <p>Cloud Cover: {cloudCover}%</p>
