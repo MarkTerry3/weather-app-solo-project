@@ -9,6 +9,7 @@ import FiveDayForecast from '../FiveDayForecasts/FiveDayForecasts.jsx';
 import Image from '../../weatherTextImages/BLUR_rain.jpg'
 import ImageTwo from '../../weatherTextImages/BLUR_2-saint-paul-skyline-joe-mamer.jpg'
 import { textAlign } from '@mui/system';
+import Tooltip from '@mui/material/Tooltip';
 
 
 
@@ -51,6 +52,15 @@ function HomePage() {
   }
 
 
+  const radarView = () => {
+    console.log('you clicked radar view');
+  }
+
+  const hourlyCast = () => {
+    console.log('you clicked hourly cast');
+  }
+
+
 const styles = {
   paperContainer: {
       backgroundImage: `url(${Image})`,
@@ -72,17 +82,20 @@ const styles = {
       <p>Current Temperature in {userLocInfo} :  {temperature} and {weatherText}</p>
       <Grid container spacing={2} sx={{ width: '70%', height: '350px', margin: 'auto' }}>
         <Grid item xs={4} >
-          <Paper className="paperContainerLeft" sx={{ height: '325px'}} style={styles.paperContainer} >
+        <Tooltip title="Click me for an hourly cast !">
+          <Paper className="paperContainerLeft" sx={{ height: '325px'}} style={styles.paperContainer} onClick={hourlyCast} >
             <h1 className="dayTime">Day Temp?</h1>
           <h2 className="userLocation">{weatherText}</h2>
           <h1 className="userLocation">{temperature}℉</h1>
           {/* <img width="100px" src={require('../../weatherTextImages/mostly-clear.png')}/> */}
           <h1 className="nightTime">Night Temp?</h1>
           </Paper>
+          </Tooltip>
         </Grid>
         <Grid item xs={8} >
+        <Tooltip title="Click me for a Radar View !">
           {/* <Paper sx={{ height: '325px' }} style={styles.paperContainer}> */}
-          <Paper className="paperContainerRight" sx={{ height: '325px' }} style={styles.paperContainerRight} >
+          <Paper className="paperContainerRight" sx={{ height: '325px' }} style={styles.paperContainerRight} onClick={radarView} >
           <h1 className="userLocation"> {userLocInfo}  </h1>
           <h3 className="userLocation">{temperature}℉ & {weatherText}</h3>
           <ul className="floatRight">
@@ -97,6 +110,7 @@ const styles = {
           <li>Cloud Cover <span className="weatherDataBold">{cloudCover}</span>%</li>
           </ul>
           </Paper>
+          </Tooltip>
         </Grid>
       </Grid>
       <br />
@@ -121,3 +135,6 @@ export default HomePage;
 // backgroundImage: `url(${ImageTwo})`,
 // className="paperContainerRight"
 //background-image: url('../../weatherTextImages/2-saint-paul-skyline-joe-mamer.jpeg');
+
+// <Tooltip title="Delete">
+// </Tooltip>
