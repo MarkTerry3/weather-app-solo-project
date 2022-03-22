@@ -65,7 +65,7 @@ function FiveDayForecast({ day }) {
 
                 <Grid item xs={6} lg={2.4} sx={{textAlign: 'center'}}>
                     <Paper sx={{py: 3, color: 'white', backgroundColor: '#37485c'}}>
-                    <Typography>{day.Date.substring(0, 10)} <br/>Hi:{day.Temperature.Maximum.Value} <br/>Lo:{day.Temperature.Minimum.Value}</Typography>
+                    <Typography>{day.Date.substring(0, 10)} <br/>Hi {day.Temperature.Maximum.Value} <br/>Lo {day.Temperature.Minimum.Value}</Typography>
                     </Paper>
                 </Grid>
 

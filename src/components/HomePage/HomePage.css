@@ -2,13 +2,67 @@
      display: flex;
 } */
 
+/* * {
+     font-family: 'Inter', sans-serif;
+     color: 'white';
+} */
+
 
 .welcomeUser {
      text-align: center;
-     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-family: 'Inter', sans-serif;
 }
 
 .userLocation {
      text-align: center;
-     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+     font-family: 'Inter', sans-serif;
 }
+
+.floatLeft {
+     color: white;
+     float:left;
+     list-style-type: none;
+     /* float:right; */
+     width:150px;
+     margin-top: -50px;
+     margin-right: 30px;
+     padding: 50px;
+     margin-bottom: 50px;
+     margin-left: 60px
+ }
+ .floatRight {
+     color: white;
+     list-style-type: none;
+     float:right;
+     width:150px;
+     margin-top: -25px;
+     margin-left: 30px;
+     margin-right: 60px;
+     padding: 50px;
+ }
+
+ .floatLeft li {
+     margin-bottom: 30px;
+ }
+
+ .floatRight li {
+      margin-bottom: 30px;
+ }
+
+ /* margin-left: 0px */
+
+ .weatherDataBold {
+     font-weight: bold;
+     color: #aecaeb;
+     text-shadow: 2px 2px black;
+ }
+
+ .paperContainerRight{
+     background-image: url('../../weatherTextImages/BLUR_2-saint-paul-skyline-joe-mamer.jpg');
+     /* filter: blur(3px); */
+     /* -webkit-filter: blur(8px); */
+ }
+
+ .paperContainerLeft {
+
+ }
