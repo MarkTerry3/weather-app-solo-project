@@ -32,7 +32,7 @@ const realFeelReducer = (state = '', action) => {
 }
 
 const windReducer = (state = '', action) => {
-    if (action.payload === 'SET_WIND') {
+    if (action.type === 'SET_WIND') {
         return action.payload;
     }else return state;
 }
@@ -55,8 +55,14 @@ const precipitationReducer = (state = '', action) => {
     }else return state;
 }
 
-const uvIndexReducer = (state = '', action) => {
-    if (action.type === 'SET_UV_INDEX') {
+const visibilityReducer = (state = '', action) => {
+    if (action.type === 'SET_VISIBILITY') {
+        return action.payload;
+    }else return state;
+}
+
+const cloudCoverReducer = (state = '', action) => {
+    if (action.type === 'SET_CLOUD_COVER') {
         return action.payload;
     }else return state;
 }
@@ -68,5 +74,9 @@ export default combineReducers({
     userInformation,
     realFeelReducer,
     windReducer,
-    windChillReducer
+    windChillReducer,
+    humidityReducer,
+    precipitationReducer,
+    visibilityReducer,
+    cloudCoverReducer
 })

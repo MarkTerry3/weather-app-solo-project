@@ -32,9 +32,15 @@ function HomePage() {
   const userOne = useSelector(store => store.user.id);
   const userLoggedIn = useSelector(store => store.user);
   const userLocInfo = useSelector(store => store.currentConditions.userInformation)
+  const realFeel = useSelector(store => store.currentConditions.realFeelReducer)
+  const wind = useSelector(store => store.currentConditions.windReducer)
+  const windChill = useSelector(store => store.currentConditions.windChillReducer)
+  const humidity = useSelector(store => store.currentConditions.humidityReducer)
+  const precipitation = useSelector(store => store.currentConditions.precipitationReducer)
+  const visibility = useSelector(store => store.currentConditions.visibilityReducer)
+  const cloudCover = useSelector(store => store.currentConditions.cloudCoverReducer)
 
 
-  // 
 
   const fetchWeather = () => {
 
@@ -52,13 +58,13 @@ function HomePage() {
 
 
 const dayImage = () => {
-  let dayImageO;
+  // let dayImageO;
 
-  if (weatherText === "Mostly clear") {
-    dayImage = '../../weatherTextImages/mostly-clear.png'
-    console.log(dayImageO);
-  }
-
+  // if (weatherText === "Mostly clear") {
+  //   dayImage = '../../weatherTextImages/mostly-clear.png'
+  //   console.log(dayImageO);
+  // }
+  console.log('wind is', wind);
 }
 
 
@@ -95,6 +101,13 @@ const styles = {
           <Paper sx={{ height: '325px' }}>
           <h1 className="userLocation"> {userLocInfo}  </h1>
           <h3 className="userLocation">{weatherText}</h3>
+          <p>Real Feel:{realFeel} F</p>
+          <p>Wind: {wind} mph</p>
+          <p>Wind Chill: {windChill} F</p>
+          <p>Humidity: {humidity} F</p>
+          <p>Precipitation: {precipitation} in</p>
+          <p>Visibility: {visibility} mi</p>
+          <p>Cloud Cover: {cloudCover}%</p>
           </Paper>
         </Grid>
       </Grid>

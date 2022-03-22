@@ -20,7 +20,13 @@ function* getCurrentConditions() {
         yield put({type: 'CURRENT_WEATHER_TEXT', payload: response.data.conditions[0].WeatherText})
         yield put({type: 'FIVE_DAY_FORECAST', payload: response.data.fiveDay.DailyForecasts})
         yield put({type: 'SET_USER_INFO', payload: response.data.userInfo})
-        userInformation
+        yield put({type: 'SET_REAL_FEEL', payload: response.data.conditions[0].RealFeelTemperature.Imperial.Value})
+        yield put({type: 'SET_WIND', payload: response.data.conditions[0].Wind.Speed.Imperial.Value})
+        yield put({type: 'SET_WIND_CHILL', payload: response.data.conditions[0].WindChillTemperature.Imperial.Value})
+        yield put({type: 'SET_HUMIDITY', payload: response.data.conditions[0].RelativeHumidity})
+        yield put({type: 'SET_PRECIPITATION', payload: response.data.conditions[0].PrecipitationSummary.Precipitation.Imperial.Value})
+        yield put({type: 'SET_VISIBILITY', payload: response.data.conditions[0].Visibility.Imperial.Value})
+        yield put({type: 'SET_CLOUD_COVER', payload: response.data.conditions[0].CloudCover})
 
         // yield put({type: 'FIVE_DAY_FORECAST', payload: weatherResponse})
         
