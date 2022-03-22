@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import FiveDayForecast from '../FiveDayForecasts/FiveDayForecasts.jsx';
-
+import '../../weatherTextImages/mostly-clear.png'
 
 
 
@@ -20,6 +20,7 @@ function HomePage() {
     //   type: 'SET_CURRENT_WEATHER'
     // })
     console.log(userLoggedIn);
+    console.log(dayImage);
   }, [])
 
 
@@ -50,6 +51,20 @@ function HomePage() {
   }
 
 
+const dayImage = () => {
+  let dayImageO;
+
+  if (weatherText === "Mostly clear") {
+    dayImage = '../../weatherTextImages/mostly-clear.png'
+    console.log(dayImageO);
+  }
+
+}
+
+
+
+
+
 
 
   return (
@@ -60,9 +75,12 @@ function HomePage() {
       <p>Current Temperature in {userLocInfo} :  {temperature} and {weatherText}</p>
       <Grid container spacing={2} sx={{ width: '70%', height: '350px', margin: 'auto' }}>
         <Grid item xs={4} >
-          <Paper sx={{ height: '325px' }}>
+          <Paper sx={{ height: '325px'}}>
+            <h1>Day Temp?</h1>
           <h2 className="userLocation">{weatherText}</h2>
           <h1 className="userLocation">{temperature}</h1>
+          <img width="100px" src={require('../../weatherTextImages/mostly-clear.png')}/>
+          <h1>Night Temp?</h1>
           </Paper>
         </Grid>
         <Grid item xs={8} >
@@ -80,6 +98,8 @@ function HomePage() {
           )
         })}
       </Grid>
+      {/* <img width="100px" src={require(dayImage)}/> */}
+      <button onClick={dayImage}>dayImage</button>
     </div>
   );
 }
