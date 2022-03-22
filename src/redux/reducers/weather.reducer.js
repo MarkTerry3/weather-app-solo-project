@@ -25,9 +25,48 @@ const userInformation = (state = '', action) => {
     }else return state;
 }
 
+const realFeelReducer = (state = '', action) => {
+    if (action.type === 'SET_REAL_FEEL') {
+        return action.payload;   
+    }else return state;
+}
+
+const windReducer = (state = '', action) => {
+    if (action.payload === 'SET_WIND') {
+        return action.payload;
+    }else return state;
+}
+
+const windChillReducer = (state = '', action) => {
+    if (action.type === 'SET_WIND_CHILL') {
+        return action.payload;
+    }else return state;
+}
+
+const humidityReducer = (state = '', action) => {
+    if (action.type === 'SET_HUMIDITY') {
+        return action.payload;
+    }else return state;
+}
+
+const precipitationReducer = (state = '', action) => {
+    if (action.type === 'SET_PRECIPITATION') {
+        return action.payload;
+    }else return state;
+}
+
+const uvIndexReducer = (state = '', action) => {
+    if (action.type === 'SET_UV_INDEX') {
+        return action.payload;
+    }else return state;
+}
+
 export default combineReducers({
     currentTemp,
     currentWeatherText,
     fiveDayForecastAPI,
     userInformation,
+    realFeelReducer,
+    windReducer,
+    windChillReducer
 })
