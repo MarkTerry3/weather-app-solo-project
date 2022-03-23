@@ -21,6 +21,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AccountPage from '../AccountPage/AccountPage';
 import HomePage from '../HomePage/HomePage.jsx'
+import RadarView from'../RadarView/RadarView.jsx';
 
 import './App.css';
 
@@ -121,6 +122,14 @@ function App() {
             path="/account"
           >
             <AccountPage />
+            </ProtectedRoute>
+
+
+            <ProtectedRoute
+            exact
+            path="/radar"
+          >
+            <RadarView />
             </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}

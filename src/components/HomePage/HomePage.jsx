@@ -10,6 +10,7 @@ import Image from '../../weatherTextImages/BLUR_rain.jpg'
 import ImageTwo from '../../weatherTextImages/BLUR_2-saint-paul-skyline-joe-mamer.jpg'
 import { textAlign } from '@mui/system';
 import Tooltip from '@mui/material/Tooltip';
+import { useHistory } from 'react-router-dom';
 
 
 
@@ -26,7 +27,7 @@ function HomePage() {
   }, [])
 
 
-
+  const history = useHistory();
   const dispatch = useDispatch();
   const weatherText = useSelector(store => store.currentConditions.currentWeatherText);
   const temperature = useSelector(store => store.currentConditions.currentTemp);
@@ -54,6 +55,7 @@ function HomePage() {
 
   const radarView = () => {
     console.log('you clicked radar view');
+    history.push('/radar');
   }
 
   const hourlyCast = () => {
