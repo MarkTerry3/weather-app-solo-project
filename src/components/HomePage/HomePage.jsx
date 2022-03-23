@@ -53,6 +53,8 @@ function HomePage() {
   }
 
 
+
+
   const radarView = () => {
     console.log('you clicked radar view');
     history.push('/radar');

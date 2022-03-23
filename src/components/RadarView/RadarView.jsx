@@ -1,6 +1,6 @@
 import Grid from '@mui/material/Grid';
 import { useHistory } from 'react-router-dom';
-
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 
 
@@ -12,22 +12,18 @@ function RadarView () {
     const history = useHistory();
 
     const goBack = () => {
-        history.push('/home');
+        history.goBack();
     }
 
 // import { MapContainer, TileLayer, Marker } from 'react-leaflet';
 
-    // return(
-    //     <>
-    //     <button onClick={goBack}>Go back</button>
-    //     <Grid container spacing={2} sx={{ width: '70%', height: '350px', margin: 'auto' }}>
-            
-    //     </Grid>
-    //     </>
-    // )
+    const position = [44.9537, -93.0900]
 
 
-    render(
+    return(
+        <div className="mapContainer">
+        <Grid container spacing={2} sx={{ width: '70%', height: '350px', margin: 'auto' }}>
+        <button onClick={goBack}>Go back</button>
         <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -39,6 +35,8 @@ function RadarView () {
             </Popup>
           </Marker>
         </MapContainer>
+        </Grid>
+        </div>
       )
 }
 
