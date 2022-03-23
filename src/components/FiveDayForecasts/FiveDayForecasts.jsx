@@ -27,6 +27,8 @@ function FiveDayForecast({ day }) {
     };
 
 
+    // if statement for weatherText Images
+
 
     const theDate = new Date(day.Date);
     let theFormattedDate = theDate.getDay();
@@ -64,12 +66,14 @@ function FiveDayForecast({ day }) {
 
     // );
 
+ 
+
 
     return (
 
                 <Grid item xs={6} lg={2.4} sx={{textAlign: 'center'}}>
                     <Paper sx={{py: 3, color: 'white', backgroundColor: '#37485c'}}>
-                    <Typography>{daysOfWeek[theFormattedDate]} <br/>Hi {day.Temperature.Maximum.Value} <br/> <img width="100px" src={require('../../weatherTextImages/rain-snow.png')}/> <br/> Lo {day.Temperature.Minimum.Value}</Typography>
+                    <Typography>{daysOfWeek[theFormattedDate]} <br/>Hi {day.Temperature.Maximum.Value} <br/> <img width="100px" src={snowImage}/> <br/> Lo {day.Temperature.Minimum.Value}</Typography>
                     </Paper>
                 </Grid>
 

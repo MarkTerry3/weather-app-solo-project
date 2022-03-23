@@ -3,11 +3,12 @@ const pool = require('../modules/pool');
 const router = express.Router();
 require('dotenv').config();
 const axios = require('axios');
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   // GET route code here
   // axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
   //   .then((conditionsResponse) => {
