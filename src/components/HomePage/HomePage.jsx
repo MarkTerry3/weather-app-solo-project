@@ -61,55 +61,55 @@ function HomePage() {
   }
 
 
-const styles = {
-  paperContainer: {
+  const styles = {
+    paperContainer: {
       backgroundImage: `url(${Image})`,
       color: 'white'
-  },
-  paperContainerRight: {
+    },
+    paperContainerRight: {
 
-    color: 'white',
-  }
-};
+      color: 'white',
+    }
+  };
+
 
 
 
   return (
     <div className="container">
       <h1 className="welcomeUser">Welcome, {userLoggedIn.username} !</h1>
-
       <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={fetchWeather}>Current Weather</Button>
-      <p>Current Temperature in {userLocInfo} :  {temperature} and {weatherText}</p>
+      {/* <p>Current Temperature in {userLocInfo} :  {temperature} and {weatherText}</p> */}
       <Grid container spacing={2} sx={{ width: '70%', height: '350px', margin: 'auto' }}>
         <Grid item xs={4} >
-        <Tooltip title="Click me for an hourly cast !">
-          <Paper className="paperContainerLeft" sx={{ height: '325px'}} style={styles.paperContainer} onClick={hourlyCast} >
-            <h1 className="dayTime">Day Temp?</h1>
-          <h2 className="userLocation">{weatherText}</h2>
-          <h1 className="userLocation">{temperature}℉</h1>
-          {/* <img width="100px" src={require('../../weatherTextImages/mostly-clear.png')}/> */}
-          <h1 className="nightTime">Night Temp?</h1>
-          </Paper>
+          <Tooltip title="Click me for an hourly cast !">
+            <Paper className="paperContainerLeft" sx={{ height: '325px' }} style={styles.paperContainer} onClick={hourlyCast} >
+              <h1 className="dayTime">Day Temp?</h1>
+              <h2 className="userLocation">{weatherText}</h2>
+              <h1 className="userLocation">{temperature}℉</h1>
+              {/* <img width="100px" src={require('../../weatherTextImages/mostly-clear.png')}/> */}
+              <h1 className="nightTime">Night Temp?</h1>
+            </Paper>
           </Tooltip>
         </Grid>
         <Grid item xs={8} >
-        <Tooltip title="Click me for a Radar View !">
-          {/* <Paper sx={{ height: '325px' }} style={styles.paperContainer}> */}
-          <Paper className="paperContainerRight" sx={{ height: '325px' }} style={styles.paperContainerRight} onClick={radarView} >
-          <h1 className="userLocation"> {userLocInfo}  </h1>
-          <h3 className="userLocation">{temperature}℉ & {weatherText}</h3>
-          <ul className="floatRight">
-          <li> Real Feel <span className="weatherDataBold">{realFeel}</span>  ℉</li>
-          <li>Wind  <span className="weatherDataBold">{wind}</span> mph</li>
-          <li>Wind Chill  <span className="weatherDataBold">{windChill}</span> ℉</li>
-          </ul>
-          <ul className="floatLeft">
-          <li>Humidity <span className="weatherDataBold">{humidity}</span> ℉</li>
-          <li>Precipitation <span className="weatherDataBold">{precipitation}</span> in</li>
-          <li>Visibility <span className="weatherDataBold">{visibility}</span> mi</li>
-          <li>Cloud Cover <span className="weatherDataBold">{cloudCover}</span>%</li>
-          </ul>
-          </Paper>
+          <Tooltip title="Click me for a Radar View !">
+            {/* <Paper sx={{ height: '325px' }} style={styles.paperContainer}> */}
+            <Paper className="paperContainerRight" sx={{ height: '325px' }} style={styles.paperContainerRight} onClick={radarView} >
+              <h1 className="userLocation"> {userLocInfo}  </h1>
+              <h3 className="userLocation">{temperature}℉ & {weatherText}</h3>
+              <ul className="floatRight">
+                <li> Real Feel <span className="weatherDataBold">{realFeel}</span>  ℉</li>
+                <li>Wind  <span className="weatherDataBold">{wind}</span> mph</li>
+                <li>Wind Chill  <span className="weatherDataBold">{windChill}</span> ℉</li>
+              </ul>
+              <ul className="floatLeft">
+                <li>Humidity <span className="weatherDataBold">{humidity}</span> ℉</li>
+                <li>Precipitation <span className="weatherDataBold">{precipitation}</span> in</li>
+                <li>Visibility <span className="weatherDataBold">{visibility}</span> mi</li>
+                <li>Cloud Cover <span className="weatherDataBold">{cloudCover}</span>%</li>
+              </ul>
+            </Paper>
           </Tooltip>
         </Grid>
       </Grid>
