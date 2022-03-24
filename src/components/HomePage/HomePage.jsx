@@ -11,7 +11,8 @@ import ImageTwo from '../../weatherTextImages/BLUR_2-saint-paul-skyline-joe-mame
 import { textAlign } from '@mui/system';
 import Tooltip from '@mui/material/Tooltip';
 import { useHistory } from 'react-router-dom';
-
+import dayImg from '../../weatherTextImages/sunny.png';
+import nightImg from '../../weatherTextImages/clear.png';
 
 
 
@@ -26,9 +27,11 @@ function HomePage() {
     console.log(userLoggedIn);
   }, [])
 
-
+  // to direct user to a diff page, and to use sagas
   const history = useHistory();
   const dispatch = useDispatch();
+
+  // accessing our reducers to use the data from the Accuweather API
   const weatherText = useSelector(store => store.currentConditions.currentWeatherText);
   const temperature = useSelector(store => store.currentConditions.currentTemp);
   const fiveDayForecast = useSelector(store => store.currentConditions.fiveDayForecastAPI);
@@ -44,7 +47,7 @@ function HomePage() {
   const cloudCover = useSelector(store => store.currentConditions.cloudCoverReducer)
 
 
-
+  // sets off a saga to GET our data from the API, then sets reducers with that data
   const fetchWeather = () => {
 
     dispatch({
@@ -52,19 +55,18 @@ function HomePage() {
     })
   }
 
-
-
-
+  // pushes you to the radarView page
   const radarView = () => {
     console.log('you clicked radar view');
     history.push('/radar');
   }
 
+  // pushes you to the hourly casts page
   const hourlyCast = () => {
     console.log('you clicked hourly cast');
   }
 
-
+  // styling the left and right TOP sides of our home page
   const styles = {
     paperContainer: {
       backgroundImage: `url(${Image})`,
@@ -77,8 +79,6 @@ function HomePage() {
   };
 
 
-
-
   return (
     <div className="container">
       <h1 className="welcomeUser">Welcome, {userLoggedIn.username} !</h1>
@@ -88,11 +88,31 @@ function HomePage() {
         <Grid item xs={4} >
           <Tooltip title="Click me for an hourly cast !">
             <Paper className="paperContainerLeft" sx={{ height: '325px' }} style={styles.paperContainer} onClick={hourlyCast} >
-              <h1 className="dayTime">Day Temp?</h1>
-              <h2 className="userLocation">{weatherText}</h2>
-              <h1 className="userLocation">{temperature}℉</h1>
-              {/* <img width="100px" src={require('../../weatherTextImages/mostly-clear.png')}/> */}
-              <h1 className="nightTime">Night Temp?</h1>
+              {/* <h4 className="dayTime">Day Time</h4>
+              <br />
+              <h2 className="userLocation">{weatherText}
+                <br />
+                <img width="100px" src={require('../../weatherTextImages/sunny.png')} />
+              </h2>
+              <h4 className="nightTime">Night Time</h4>
+              <br />
+              <p>hiiiii</p>
+              <h2 className="userLocation">{weatherText}
+                <img width="100px" src={require('../../weatherTextImages/clear.png')} />
+              </h2> */}
+              <div className="dayNightData">
+                <h4>
+                  Day Time
+                </h4>
+                <h3>{weatherText}</h3>
+                <img width="100px" src={require('../../weatherTextImages/sunny.png')} />
+
+                <h4>
+                  Night Time
+                </h4>
+                <h3>{weatherText}</h3>
+                <img width="100px" src={require('../../weatherTextImages/clear.png')} />
+              </div>
             </Paper>
           </Tooltip>
         </Grid>

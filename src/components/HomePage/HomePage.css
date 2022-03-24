@@ -18,6 +18,15 @@
      font-family: 'Inter', sans-serif;
 }
 
+.dayNightData{
+     text-align: center;
+     font-family: 'Montserrat', sans-serif;
+}
+.dayNightData h3 {
+     font-weight: 900;
+     text-shadow: 2px 2px black;
+}
+
 .floatLeft {
      color: white;
      float:left;
