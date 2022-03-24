@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import {useState} from 'react';
 import './RadarView.css';
-
-
+import Button from '@mui/material/Button';
+// import {Helmet} from "react-helmet";
 
 
 
@@ -68,9 +68,38 @@ function RadarView() {
     //     center: [44.9537, -93.0900],
     //      zoom: 13
     //    })
+
+
+    const options = {
+        // Required: API key
+        key: 'PsLAtXpsPTZexBwUkO7Mx5I', // REPLACE WITH YOUR KEY !!!
+    
+        // Put additional console output
+        verbose: true,
+    
+        // Optional: Initial state of the map
+        lat: 44.9537,
+        lon: 93.0900,
+        zoom: 13,
+    };
+    
+    // Initialize Windy API
+    windyInit(options, windyAPI => {
+        // windyAPI is ready, and contain 'map', 'store',
+        // 'picker' and other usefull stuff
+    
+        const { map } = windyAPI;
+        // .map is instance of Leaflet map
+    
+        L.popup()
+            .setLatLng([44.9537, 14.3])
+            .setContent('Hello World')
+            .openOn(map);
+    });
        
 
     return(
+        <div id="windy">
         <MapContainer className="leaflet-container" center={[44.9537, -93.0900]} zoom={13} scrollWheelZoom={false}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -82,6 +111,8 @@ function RadarView() {
           </Popup>
         </Marker>
       </MapContainer>
+      <Button className="button" style={{ backgroundColor: "teal" }} variant="contained" onClick={goBack}>Go Back</Button>
+      </div>
     )
 
 

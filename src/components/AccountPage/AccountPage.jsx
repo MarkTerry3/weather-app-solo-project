@@ -143,20 +143,6 @@ function AccountPage() {
     // ============================================================================================================================
 
 
-    // const [openDelete, setOpenDelete] = React.useState(false);
-
-    // const handleClickOpenDelete = () => {
-    //     setOpenDelete(true);
-    // };
-
-    // const handleCloseDelete = () => {
-    //     setOpenDelete(false);
-    // };
-
-
-
-
-
     const [openDelete, setOpenDelete] = React.useState(false);
 
 
