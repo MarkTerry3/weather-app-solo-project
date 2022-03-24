@@ -32,7 +32,7 @@ function HomePage() {
   const dispatch = useDispatch();
 
   // accessing our reducers to use the data from the Accuweather API
-  const weatherText = useSelector(store => store.currentConditions.currentWeatherText);
+  const dayText = useSelector(store => store.currentConditions.currentWeatherText);
   const temperature = useSelector(store => store.currentConditions.currentTemp);
   const fiveDayForecast = useSelector(store => store.currentConditions.fiveDayForecastAPI);
   const userOne = useSelector(store => store.user.id);
@@ -45,6 +45,8 @@ function HomePage() {
   const precipitation = useSelector(store => store.currentConditions.precipitationReducer)
   const visibility = useSelector(store => store.currentConditions.visibilityReducer)
   const cloudCover = useSelector(store => store.currentConditions.cloudCoverReducer)
+  const nightText = useSelector(store => store.currentConditions.nightTimeTextReducer)
+  const nightTemperature = useSelector(store => store.currentConditions.nightTimeTemperatureReducer)
 
 
   // sets off a saga to GET our data from the API, then sets reducers with that data
@@ -88,29 +90,18 @@ function HomePage() {
         <Grid item xs={4} >
           <Tooltip title="Click me for an hourly cast !">
             <Paper className="paperContainerLeft" sx={{ height: '325px' }} style={styles.paperContainer} onClick={hourlyCast} >
-              {/* <h4 className="dayTime">Day Time</h4>
-              <br />
-              <h2 className="userLocation">{weatherText}
-                <br />
-                <img width="100px" src={require('../../weatherTextImages/sunny.png')} />
-              </h2>
-              <h4 className="nightTime">Night Time</h4>
-              <br />
-              <p>hiiiii</p>
-              <h2 className="userLocation">{weatherText}
-                <img width="100px" src={require('../../weatherTextImages/clear.png')} />
-              </h2> */}
+
               <div className="dayNightData">
                 <h4>
                   Day Time
                 </h4>
-                <h3>{weatherText}</h3>
+                <h3>{temperature}℉ & {dayText}</h3>
                 <img width="100px" src={require('../../weatherTextImages/sunny.png')} />
 
                 <h4>
                   Night Time
                 </h4>
-                <h3>{weatherText}</h3>
+                <h3>{nightTemperature}℉ & {nightText}</h3>
                 <img width="100px" src={require('../../weatherTextImages/clear.png')} />
               </div>
             </Paper>
@@ -121,7 +112,7 @@ function HomePage() {
             {/* <Paper sx={{ height: '325px' }} style={styles.paperContainer}> */}
             <Paper className="paperContainerRight" sx={{ height: '325px' }} style={styles.paperContainerRight} onClick={radarView} >
               <h1 className="userLocation"> {userLocInfo}  </h1>
-              <h3 className="userLocation">{temperature}℉ & {weatherText}</h3>
+              <h3 className="userLocation">{temperature}℉ & {dayText}</h3>
               <ul className="floatRight">
                 <li> Real Feel <span className="weatherDataBold">{realFeel}</span>  ℉</li>
                 <li>Wind  <span className="weatherDataBold">{wind}</span> mph</li>

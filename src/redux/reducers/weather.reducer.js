@@ -67,6 +67,18 @@ const cloudCoverReducer = (state = '', action) => {
     }else return state;
 }
 
+const nightTimeTextReducer = (state = '', action) => {
+    if (action.type === 'SET_NIGHT_TIME_TEXT') {
+        return action.payload;
+    }else return state;
+}
+
+const nightTimeTemperatureReducer = (state = '', action) => {
+    if (action.type === 'SET_NIGHT_TIME_TEMPERATURE') {
+        return action.payload;
+    }else return state;
+}
+
 export default combineReducers({
     currentTemp,
     currentWeatherText,
@@ -78,5 +90,7 @@ export default combineReducers({
     humidityReducer,
     precipitationReducer,
     visibilityReducer,
-    cloudCoverReducer
+    cloudCoverReducer,
+    nightTimeTextReducer,
+    nightTimeTemperatureReducer
 })
