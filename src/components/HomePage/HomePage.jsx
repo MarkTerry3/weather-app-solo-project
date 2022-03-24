@@ -11,7 +11,7 @@ import ImageTwo from '../../weatherTextImages/BLUR_2-saint-paul-skyline-joe-mame
 import { textAlign } from '@mui/system';
 import Tooltip from '@mui/material/Tooltip';
 import { useHistory } from 'react-router-dom';
-import dayImg from '../../weatherTextImages/sunny.png';
+import '../../weatherTextImages/sunny.png';
 import nightImg from '../../weatherTextImages/clear.png';
 
 
@@ -93,13 +93,13 @@ function HomePage() {
 
               <div className="dayNightData">
                 <h4>
-                  Day Time
+                  Today
                 </h4>
                 <h3>{temperature}℉ & {dayText}</h3>
                 <img width="100px" src={require('../../weatherTextImages/sunny.png')} />
 
                 <h4>
-                  Night Time
+                  Tonight
                 </h4>
                 <h3>{nightTemperature}℉ & {nightText}</h3>
                 <img width="100px" src={require('../../weatherTextImages/clear.png')} />

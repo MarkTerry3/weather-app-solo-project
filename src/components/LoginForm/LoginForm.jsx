@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector(store => store.errors);
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const login = (event) => {
     event.preventDefault();
@@ -20,9 +22,12 @@ function LoginForm() {
           password: password,
         },
       });
+    // history.push fixes bug where if you log out while on Account page, then log in as a new user, it brings you right to the account page again.
+      history.push('/home');
     } else {
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
+
   }; // end login
 
 
