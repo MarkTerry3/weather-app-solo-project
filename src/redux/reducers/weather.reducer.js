@@ -79,6 +79,12 @@ const nightTimeTemperatureReducer = (state = '', action) => {
     }else return state;
 }
 
+const hourlyReducer = (state = [], action) => {
+    if (action.type === 'SET_HOURLY_FORECASTS') {
+        return action.payload;
+    }else return state;
+}
+
 export default combineReducers({
     currentTemp,
     currentWeatherText,
@@ -92,5 +98,6 @@ export default combineReducers({
     visibilityReducer,
     cloudCoverReducer,
     nightTimeTextReducer,
-    nightTimeTemperatureReducer
+    nightTimeTemperatureReducer,
+    hourlyReducer,
 })

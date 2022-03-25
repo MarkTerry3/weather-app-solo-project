@@ -3,7 +3,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 require('dotenv').config();
 const axios = require('axios');
-const {rejectUnauthenticated} = require('../modules/authentication-middleware');
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * GET route template
@@ -40,11 +40,17 @@ router.get('/', rejectUnauthenticated, (req, res) => {
             .then((conditionsResponse) => {
               axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${userLocationKey}?apikey=${process.env.ACCU_API_KEY}`)
                 .then((fiveDayResponse) => {
-                  let weatherResponse = {}
-                  weatherResponse.conditions = conditionsResponse.data;
-                  weatherResponse.fiveDay = fiveDayResponse.data;
-                  weatherResponse.userInfo = zipCodeResponse.data[0].LocalizedName;
-                  res.send(weatherResponse);
+                  axios.get(`http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${userLocationKey}?apikey=${process.env.ACCU_API_KEY}`)
+                    .then((hourlyResponse) => {
+                      let weatherResponse = {}
+                      weatherResponse.conditions = conditionsResponse.data;
+                      weatherResponse.fiveDay = fiveDayResponse.data;
+                      weatherResponse.userInfo = zipCodeResponse.data[0].LocalizedName;
+                      weatherResponse.hourly = hourlyResponse.data;
+                      res.send(weatherResponse);
+                    })
+                }).catch((error) => {
+                  console.log('error getting 12 hour forecast');
                 })
             }).catch((error) => {
               console.log('error getting current conditions');

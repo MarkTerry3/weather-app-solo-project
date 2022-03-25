@@ -22,6 +22,8 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import AccountPage from '../AccountPage/AccountPage';
 import HomePage from '../HomePage/HomePage.jsx'
 import RadarView from'../RadarView/RadarView.jsx';
+import HourlyForecasts from '../HourlyForecasts/HourlyForecasts'
+
 
 import './App.css';
 
@@ -130,6 +132,14 @@ function App() {
             path="/radar"
           >
             <RadarView />
+            </ProtectedRoute>
+
+
+            <ProtectedRoute
+            exact
+            path="/hourly"
+          >
+            <HourlyForecasts />
             </ProtectedRoute>
 
           {/* If none of the other routes matched, we will show a 404. */}

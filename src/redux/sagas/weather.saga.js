@@ -29,6 +29,7 @@ function* getCurrentConditions() {
         yield put({type: 'SET_CLOUD_COVER', payload: response.data.conditions[0].CloudCover})
         yield put({type: 'SET_NIGHT_TIME_TEXT', payload: response.data.fiveDay.DailyForecasts[0].Night.IconPhrase})
         yield put({type: 'SET_NIGHT_TIME_TEMPERATURE', payload: response.data.fiveDay.DailyForecasts[0].Temperature.Minimum.Value})
+        yield put({type: 'SET_HOURLY_FORECASTS', payload: response.data.hourly})
 
         // yield put({type: 'FIVE_DAY_FORECAST', payload: weatherResponse})
         

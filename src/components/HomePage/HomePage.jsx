@@ -66,6 +66,7 @@ function HomePage() {
   // pushes you to the hourly casts page
   const hourlyCast = () => {
     console.log('you clicked hourly cast');
+    history.push('/hourly');
   }
 
   // styling the left and right TOP sides of our home page
