@@ -46,6 +46,7 @@ function RegisterForm() {
             type="text"
             name="username"
             value={username}
+            autocomplete="off"
             required
             onChange={(event) => setUsername(event.target.value)}
           />
@@ -58,6 +59,7 @@ function RegisterForm() {
             type="password"
             name="password"
             value={password}
+            autocomplete="off"
             required
             onChange={(event) => setPassword(event.target.value)}
           />
@@ -70,6 +72,7 @@ function RegisterForm() {
             type="text"
             name="zipCode"
             value={zipCode}
+            autocomplete="off"
             required
             onChange={(event) => setZipCode(event.target.value)}
           />

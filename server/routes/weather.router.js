@@ -59,6 +59,12 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 
 
+// GET to hourly forecast
+// /forecasts/v1/hourly/12hour/23977_PC?apikey=3PH0Gj42GXqiPgI6T9IivsaAVsK5kczR
+
+
+
+
 
 // Current conditions - gives temperature and weather text
 //   `http://dataservice.accuweather.com/currentconditions/v1/${userLocationKey}?apikey=${process.env.ACCU_API_KEY}`

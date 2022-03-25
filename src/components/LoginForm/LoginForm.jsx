@@ -48,6 +48,7 @@ function LoginForm() {
             name="username"
             required
             value={username}
+            autocomplete="off"
             onChange={(event) => setUsername(event.target.value)}
           />
         </label>
@@ -60,6 +61,7 @@ function LoginForm() {
             name="password"
             required
             value={password}
+            autocomplete="off"
             onChange={(event) => setPassword(event.target.value)}
           />
         </label>

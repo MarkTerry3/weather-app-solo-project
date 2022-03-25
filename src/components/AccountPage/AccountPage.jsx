@@ -37,6 +37,7 @@ function AccountPage() {
             payload: { user_id, zipCode }
         })
         // setZipCode('');
+
         history.push('/home');
 
     }
@@ -91,37 +92,6 @@ function AccountPage() {
         p: 4,
         backgroundColor: "red"
     };
-
-    // return (
-    //     <>
-    //         <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={handleOpen}>Edit Zip Code</Button>
-    //         <br />
-    //         <hr />
-    //         <Button style={{ backgroundColor: "red" }} variant="contained" onClick={deleteAccount}>Delete Account</Button>
-
-    //         <Modal
-    //             open={open}
-    //             onClose={handleClose}
-    //             aria-labelledby="modal-modal-title"
-    //             aria-describedby="modal-modal-description"
-    //         >
-    //             <Box sx={style}>
-    //                 <Typography id="modal-modal-title" variant="h6" component="h2">
-    //                     Edit Zip Code
-    //                 </Typography>
-    //                     <TextField 
-    //                         sx={{ mt: 2}}
-    //                         required
-    //                         id="outlined-zipcode-input"
-    //                         label="Zip Code"
-    //                         value={zipCode}
-    //                         onChange={(event) => setZipCode(event.target.value)}
-    //                     />
-    //                     <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={editAccount}>Submit</Button>
-    //             </Box>
-    //         </Modal>
-    //     </>
-    // )
 
     // ============================================================================================================================
     // Stuff for Edit below
