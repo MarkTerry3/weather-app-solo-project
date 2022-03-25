@@ -25,12 +25,18 @@ function HourlyForecasts() {
 
     return (
         <>
-        <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={goBack}>Go Back</Button>
-            <Grid item xs={6} lg={2.4} sx={{ textAlign: 'center' }}>
+            <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={goBack}>Go Back</Button>
+            <Grid container spacing={1} sx={{ width: '70%', height: '350px', margin: 'auto' }} >
+            {hourly.map((hour, i) => (
+            <Grid item xs={6} lg={2} sx={{ width: '20%', height: '350px', margin: 'auto', textAlign: 'center' }}>
                 <Paper sx={{ py: 3, color: 'white', backgroundColor: '#37485c' }} onClick={hourlyText}>
-                    <Typography> Date <br /> Temperature <br />  Weather Text <br /><img width="100px" src={tstorms} /></Typography>
+                    <Typography> {hour.DateTime} <br /> {hour.Temperature.Value} <br />  {hour.IconPhrase} <br /><img width="100px" src={tstorms} /></Typography>
                 </Paper>
-            </Grid>
+            </Grid>  
+            )
+        )}
+        </Grid>
+
         </>
     )
 }
