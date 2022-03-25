@@ -30,96 +30,35 @@ function FiveDayForecast({ day }) {
     };
 
 
-    // if statement for weatherText Images
-
-
-
-
     const theDate = new Date(day.Date);
     let theFormattedDate = theDate.getDay();
     let daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
 
-    //                             {day.Date.substring(0, 10)}
-    //                             Hi: {day.Temperature.Maximum.Value}
-    //                             Lo: {day.Temperature.Minimum.Value}
-
-    function imageTest(params) {
-        for (let i = 0; i < 5; i++) {
-            if (i === 1) {
-                return sunny;
-            } if (i === 2) {
-                return cloudy;
-            } if (i === 3) {
-                return mostlyCloudy;
-            } if (i === 4) {
-                return tstorms;
-            } else return sunny
-        } // end for loop
-    } // end imageTest
-
-    // src={imageFunction(day.Day.IconPhrase)}
-    // weatherImage(day.Day.IconPhrase)
-
-    const dayImg = () => {
-        console.log(day);
-    }
 
     function weatherImage(text) {
         // 4 ifs
-        console.log(day);
+        // console.log(day);
         console.log(text);
-        if (text == 'Sunny' || 'Mostly sunny' || 'Partly sunny' || 'Hazy sunshine' || 'Partly sunny w/ Flurries' || 'Clear' || 'Mostly clear') { //sunny
+        
+        if (text === 'Sunny' || text === 'Mostly sunny' || text === 'Partly sunny' || text === 'Hazy sunshine' || text === 'Partly sunny w/ Flurries' || text === 'Clear' || text === 'Mostly clear') { //sunny
             return sunny;
-        } if (text == 'Intermittent clouds' || 'Mostly cloudy' || 'Cloudy' || 'Dreary (Overcast)' || 'Flurries' || 'Mostly Cloudy w/ Flurries' || 'Snow' || 'Freezing rain') {     //cloudy
+        } if (text === 'Intermittent clouds' || text === 'Mostly cloudy' || text === 'Cloudy' || text === 'Dreary (Overcast)' || text === 'Flurries' || text === 'Mostly Cloudy w/ Flurries' || text === 'Snow' || text === 'Freezing rain') {     //cloudy
             return cloudy;
-        } if (text == 'Fog' || 'Mostly Cloudy w/ Snow' || 'Partly cloudy' || 'Intermittent clouds') {  //partly cloudy
+        } if (text === 'Fog' || text === 'Mostly Cloudy w/ Snow' || text === 'Partly cloudy' || text === 'Intermittent clouds') {  //partly cloudy
             return mostlyCloudy;
-        } if (text == 'Showers' || 'Mostly Cloudy w/ Showers' || 'Partly Sunny w/ Showers' || 'T-storms' || 'Mostly cloudy w/ T-Storms' || 'Partly sunny w/ t-storms' || 'Rain' || 'Ice' || 'Sleet' || 'Rain and snow' ||
-            'Partly Cloudy w/ Showers' || 'Mostly Cloudy w/ Showers' || 'Partly Cloudy w/ T-Storms' || 'Mostly Cloudy w/ T-Storms' || 'Mostly Cloudy w/ Flurries' || 'Mostly Cloudy w/ Snow') { //rainy
+        } if (text === 'Showers' || text === 'Mostly Cloudy w/ Showers' || text === 'Partly Sunny w/ Showers' || text === 'T-storms' || text === 'Mostly cloudy w/ T-Storms' || text === 'Partly sunny w/ t-storms' || text === 'Rain' || text === 'Ice' || text === 'Sleet' || text === 'Rain and snow' ||
+        text === 'Partly Cloudy w/ Showers' || text === 'Mostly Cloudy w/ Showers' || text === 'Partly Cloudy w/ T-Storms' || text === 'Mostly Cloudy w/ T-Storms' || text === 'Mostly Cloudy w/ Flurries' || text === 'Mostly Cloudy w/ Snow') { //rainy
             return tstorms;
-        } else return;
-
-
-
+        } 
     }
-
-
-    // weatherImage(day.Day.IconPhrase)
-function checkText(params) {
-    switch (params) {
-        case sunny: 'Mostly sunny'
-            //Statements executed when the
-            //result of expression matches value1
-            break;
-        case cloudy: 'Cloudy'
-            //Statements executed when the
-            //result of expression matches value2
-            break;
-        case mostlyCloudy: 'Partly sunny'
-            //Statements executed when the
-            //result of expression matches valueN
-            break;
-        case tstorms: 'Rain and snow', 'Showers'
-            //Statements executed when the
-            //result of expression matches valueN
-            break;
-        default:
-            //Statements executed when none of
-            //the values match the value of the expression
-            break;
-    }
-}
-
-
-
 
 
     return (
         <>
-            <Grid item xs={6} lg={2.4} sx={{ textAlign: 'center' }} onClick={dayImg}>
+            <Grid item xs={6} lg={2.4} sx={{ textAlign: 'center' }} >
                 <Paper sx={{ py: 3, color: 'white', backgroundColor: '#37485c' }}>
-                    <Typography>{daysOfWeek[theFormattedDate]} <br />Hi {day.Temperature.Maximum.Value} <br /> <img width="100px" src={imageTest(day.Day.IconPhrase)} /> <br /> Lo {day.Temperature.Minimum.Value}</Typography>
+                    <Typography>{daysOfWeek[theFormattedDate]} <br /> <img width="100px" src={weatherImage(day.Day.IconPhrase)} /> <br />Hi {day.Temperature.Maximum.Value}  <br /> Lo {day.Temperature.Minimum.Value} <br />{day.Day.IconPhrase}</Typography>
                 </Paper>
             </Grid>
         </>
