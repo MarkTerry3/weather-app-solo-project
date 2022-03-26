@@ -12,7 +12,10 @@ import { textAlign } from '@mui/system';
 import Tooltip from '@mui/material/Tooltip';
 import { useHistory } from 'react-router-dom';
 import '../../weatherTextImages/sunny.png';
-import nightImg from '../../weatherTextImages/clear.png';
+import sunny from '../../weatherTextImages/sunny.png';
+import cloudy from '../../weatherTextImages/cloudy.png';
+import mostlyCloudy from '../../weatherTextImages/mostly-cloudy.png';
+import tstorms from '../../weatherTextImages/tstorms.png';
 
 
 
@@ -82,6 +85,23 @@ function HomePage() {
   };
 
 
+  // function to conditionally render whichever picture matches best with the weather description
+  function weatherImage(text) {
+    console.log(text);
+
+    if (text === 'Sunny' || text === 'Mostly sunny' || text === 'Hazy sunshine' || text === 'Partly sunny w/ flurries' || text === 'Clear' || text === 'Mostly clear') { //sunny
+      return sunny;
+    } if (text === 'Intermittent clouds' || text === 'Mostly cloudy' || text === 'Cloudy' || text === 'Dreary (Overcast)' || text === 'Flurries' || text === 'Mostly cloudy w/ flurries' || text === 'Snow' || text === 'Freezing rain' || text === 'Partly sunny') {     //cloudy
+      return cloudy;
+    } if (text === 'Fog' || text === 'Mostly cloudy w/ snow' || text === 'Partly cloudy' || text === 'Intermittent clouds') {  //partly cloudy
+      return mostlyCloudy;
+    } if (text === 'Showers' || text === 'Mostly cloudy w/ showers' || text === 'Partly sunny w/ showers' || text === 'T-storms' || text === 'Mostly cloudy w/ t-storms' || text === 'Partly sunny w/ t-storms' || text === 'Rain' || text === 'Ice' || text === 'Sleet' || text === 'Rain and snow' ||
+      text === 'Partly cloudy w/ showers' || text === 'Mostly cloudy w/ showers' || text === 'Partly cloudy w/ t-storms' || text === 'Mostly cloudy w/ t-storms' || text === 'Mostly cloudy w/ flurries' || text === 'Mostly cloudy w/ snow' || text === 'Light rain') { //rainy
+      return tstorms;
+    }
+  }
+
+
   return (
     <div className="container">
       <h1 className="welcomeUser">Welcome, {userLoggedIn.username} !</h1>
@@ -97,13 +117,13 @@ function HomePage() {
                   Today
                 </h4>
                 <h3>{temperature}℉ & {dayText}</h3>
-                <img width="100px" src={require('../../weatherTextImages/sunny.png')} />
+                <img width="100px" src={weatherImage(dayText)} />
 
                 <h4>
                   Tonight
                 </h4>
                 <h3>{nightTemperature}℉ & {nightText}</h3>
-                <img width="100px" src={require('../../weatherTextImages/clear.png')} />
+                <img width="100px" src={weatherImage(nightText)} />
               </div>
             </Paper>
           </Tooltip>
@@ -120,7 +140,7 @@ function HomePage() {
                 <li>Wind Chill  <span className="weatherDataBold">{windChill}</span> ℉</li>
               </ul>
               <ul className="floatLeft">
-                <li>Humidity <span className="weatherDataBold">{humidity}</span> ℉</li>
+                <li>Humidity <span className="weatherDataBold">{humidity}</span> %rh</li>
                 <li>Precipitation <span className="weatherDataBold">{precipitation}</span> in</li>
                 <li>Visibility <span className="weatherDataBold">{visibility}</span> mi</li>
                 <li>Cloud Cover <span className="weatherDataBold">{cloudCover}</span>%</li>
@@ -143,14 +163,3 @@ function HomePage() {
 }
 
 export default HomePage;
-
-
-// className="dayTime"
-// className="nightTime"
-// className="weatherDataBold"
-// backgroundImage: `url(${ImageTwo})`,
-// className="paperContainerRight"
-//background-image: url('../../weatherTextImages/2-saint-paul-skyline-joe-mamer.jpeg');
-
-// <Tooltip title="Delete">
-// </Tooltip>

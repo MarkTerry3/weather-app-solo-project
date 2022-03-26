@@ -9,12 +9,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-
-
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { useState } from 'react';
-
+import './AccountPage.css';
 
 function AccountPage() {
 
@@ -36,7 +34,8 @@ function AccountPage() {
             type: 'EDIT_ZIP_CODE',
             payload: { user_id, zipCode }
         })
-        // setZipCode('');
+        // set the new zip
+        setZipCode(zipCode);
 
         history.push('/home');
 
@@ -125,11 +124,23 @@ function AccountPage() {
     };
 
 
+    function whichUser() {
+        console.log(user_id);
+    }
+
+
+    function getUserZip() {
+
+    }
+
+
 
 
 
     return (
         <div>
+            <h3 onClick={whichUser}>User Name: {user_id.username}</h3>
+            <h3>Current Zip Code: {user_id.zip_code}</h3>
             <Button style={styleEdit} variant="contained" onClick={handleClickOpenEdit}>Edit Zip Code</Button>
             <Button style={styleDelete} variant="contained" onClick={handleClickOpenDelete}>Delete Account</Button>
             <Dialog open={openEdit} onClose={handleCloseEdit}>

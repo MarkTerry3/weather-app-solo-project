@@ -8,6 +8,7 @@ import sunny from '../../weatherTextImages/sunny.png';
 import cloudy from '../../weatherTextImages/cloudy.png';
 import mostlyCloudy from '../../weatherTextImages/mostly-cloudy.png';
 import tstorms from '../../weatherTextImages/tstorms.png';
+import './HourlyForecasts.css'
 
 function HourlyForecasts() {
 
@@ -84,12 +85,13 @@ function HourlyForecasts() {
 
     return (
         <>
+            <h1>Todays Hourly Forecasts</h1>
             <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={goBack}>Go Back</Button>
             <Grid container spacing={1} sx={{ width: '70%', height: '350px', margin: 'auto' }} >
                 {hourly.map((hour, i) => (
                     <Grid item xs={6} lg={2} sx={{ width: '20%', height: '350px', margin: 'auto', textAlign: 'center' }}>
                         <Paper sx={{ py: 3, color: 'white', backgroundColor: '#37485c' }} onClick={hourlyText}>
-                            <Typography> {getTime(hour.DateTime)} <br /> {hour.Temperature.Value} <br />  {hour.IconPhrase} <br /><img width="100px" src={weatherTextImage(hour.IconPhrase)} /></Typography>
+                            <Typography> {getTime(hour.DateTime)} <br /> {hour.Temperature.Value}℉ <br />  {hour.IconPhrase} <br /><img width="100px" src={weatherTextImage(hour.IconPhrase)} /></Typography>
                         </Paper>
                     </Grid>
                 )

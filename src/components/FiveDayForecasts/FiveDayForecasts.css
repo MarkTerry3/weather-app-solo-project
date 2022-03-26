@@ -4,3 +4,7 @@
     align-items: center;
     flex-direction: row;
 } */
+
+.weatherDegrees {
+    text-shadow: 2px 2px black;
+}
