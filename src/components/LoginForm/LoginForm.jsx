@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import {useSelector} from 'react-redux';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
+import './LoginForm.css';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -34,14 +35,14 @@ function LoginForm() {
 
   return (
     <form className="formPanel" onSubmit={login}>
-      <h2>Login</h2>
+      <h2 className="userPass">Login</h2>
       {errors.loginMessage && (
         <h3 className="alert" role="alert">
           {errors.loginMessage}
         </h3>
       )}
       <div>
-        <label htmlFor="username">
+        <label htmlFor="username" className="userPass">
           Username:
           <input
             type="text"
@@ -54,7 +55,7 @@ function LoginForm() {
         </label>
       </div>
       <div>
-        <label htmlFor="password">
+        <label htmlFor="password" className="userPass">
           Password:
           <input
             type="password"
