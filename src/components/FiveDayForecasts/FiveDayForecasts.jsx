@@ -41,9 +41,9 @@ function FiveDayForecast({ day }) {
         // console.log(day);
         console.log(text);
         
-        if (text === 'Sunny' || text === 'Mostly sunny' || text === 'Partly sunny' || text === 'Hazy sunshine' || text === 'Partly sunny w/ Flurries' || text === 'Clear' || text === 'Mostly clear') { //sunny
+        if (text === 'Sunny' || text === 'Mostly sunny' || text === 'Hazy sunshine' || text === 'Partly sunny w/ Flurries' || text === 'Clear' || text === 'Mostly clear') { //sunny
             return sunny;
-        } if (text === 'Intermittent clouds' || text === 'Mostly cloudy' || text === 'Cloudy' || text === 'Dreary (Overcast)' || text === 'Flurries' || text === 'Mostly Cloudy w/ Flurries' || text === 'Snow' || text === 'Freezing rain') {     //cloudy
+        } if (text === 'Intermittent clouds' || text === 'Mostly cloudy' || text === 'Cloudy' || text === 'Dreary (Overcast)' || text === 'Flurries' || text === 'Mostly Cloudy w/ Flurries' || text === 'Snow' || text === 'Freezing rain' || text === 'Partly sunny') {     //cloudy
             return cloudy;
         } if (text === 'Fog' || text === 'Mostly Cloudy w/ Snow' || text === 'Partly cloudy' || text === 'Intermittent clouds') {  //partly cloudy
             return mostlyCloudy;

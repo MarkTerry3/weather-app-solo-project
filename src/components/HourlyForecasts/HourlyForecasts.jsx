@@ -3,9 +3,11 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import tstorms from '../../weatherTextImages/tstorms.png';
 import { useHistory } from 'react-router-dom';
-
+import sunny from '../../weatherTextImages/sunny.png';
+import cloudy from '../../weatherTextImages/cloudy.png';
+import mostlyCloudy from '../../weatherTextImages/mostly-cloudy.png';
+import tstorms from '../../weatherTextImages/tstorms.png';
 
 function HourlyForecasts() {
 
@@ -65,6 +67,21 @@ function HourlyForecasts() {
     }
 
 
+    // function for weatherText
+    function weatherTextImage(text) {
+        if (text === 'Sunny' || text === 'Mostly sunny' || text === 'Hazy sunshine' || text === 'Partly sunny w/ Flurries' || text === 'Clear' || text === 'Mostly clear') { //sunny
+            return sunny;
+        } if (text === 'Intermittent clouds' || text === 'Mostly cloudy' || text === 'Cloudy' || text === 'Dreary (Overcast)' || text === 'Flurries' || text === 'Mostly Cloudy w/ Flurries' || text === 'Snow' || text === 'Freezing rain' || text === 'Partly sunny') {     //cloudy
+            return cloudy;
+        } if (text === 'Fog' || text === 'Mostly Cloudy w/ Snow' || text === 'Partly cloudy' || text === 'Intermittent clouds') {  //partly cloudy
+            return mostlyCloudy;
+        } if (text === 'Showers' || text === 'Mostly Cloudy w/ Showers' || text === 'Partly Sunny w/ Showers' || text === 'T-storms' || text === 'Mostly cloudy w/ T-Storms' || text === 'Partly sunny w/ t-storms' || text === 'Rain' || text === 'Ice' || text === 'Sleet' || text === 'Rain and snow' ||
+        text === 'Partly Cloudy w/ Showers' || text === 'Mostly Cloudy w/ Showers' || text === 'Partly Cloudy w/ T-Storms' || text === 'Mostly Cloudy w/ T-Storms' || text === 'Mostly Cloudy w/ Flurries' || text === 'Mostly Cloudy w/ Snow') { //rainy
+            return tstorms;
+        } 
+    }
+
+
     return (
         <>
             <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={goBack}>Go Back</Button>
@@ -72,7 +89,7 @@ function HourlyForecasts() {
                 {hourly.map((hour, i) => (
                     <Grid item xs={6} lg={2} sx={{ width: '20%', height: '350px', margin: 'auto', textAlign: 'center' }}>
                         <Paper sx={{ py: 3, color: 'white', backgroundColor: '#37485c' }} onClick={hourlyText}>
-                            <Typography> {getTime(hour.DateTime)} <br /> {hour.Temperature.Value} <br />  {hour.IconPhrase} <br /><img width="100px" src={tstorms} /></Typography>
+                            <Typography> {getTime(hour.DateTime)} <br /> {hour.Temperature.Value} <br />  {hour.IconPhrase} <br /><img width="100px" src={weatherTextImage(hour.IconPhrase)} /></Typography>
                         </Paper>
                     </Grid>
                 )
