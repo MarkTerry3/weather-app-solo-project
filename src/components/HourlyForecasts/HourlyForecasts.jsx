@@ -86,7 +86,7 @@ function HourlyForecasts() {
     return (
         <>
             <h1>Todays Hourly Forecasts</h1>
-            <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={goBack}>Go Back</Button>
+            <Button style={{ backgroundColor: "#37485c"  }} justify = "center" variant="contained" onClick={goBack}>Go Back</Button>
             <Grid container spacing={1} sx={{ width: '70%', height: '350px', margin: 'auto' }} >
                 {hourly.map((hour, i) => (
                     <Grid item xs={6} lg={2} sx={{ width: '20%', height: '350px', margin: 'auto', textAlign: 'center' }}>
