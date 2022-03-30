@@ -17,13 +17,18 @@ import cloudy from '../../weatherTextImages/cloudy.png';
 import mostlyCloudy from '../../weatherTextImages/mostly-cloudy.png';
 import tstorms from '../../weatherTextImages/tstorms.png';
 import moon from '../../weatherTextImages/clear.png';
-
+import snow from '../../weatherTextImages/snow.png';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 
 
 function HomePage() {
 
-// use this to set off the saga to GET weather data from the API
+  // use this to set off the saga to GET weather data from the API
   useEffect(() => {
     dispatch({
       type: 'SET_CURRENT_WEATHER'
@@ -86,6 +91,22 @@ function HomePage() {
   };
 
 
+  //////////////////////////////////////////////
+  // For MUI Pop up on page load below
+  //////////////////////////////////////////////
+  const [open, setOpen] = React.useState(true);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+
+
+
   // function to conditionally render whichever picture matches best with the weather description - Day Time
   function weatherImage(text) {
     console.log(text);
@@ -102,11 +123,11 @@ function HomePage() {
     }
   }
 
-// function to conditionally render whichever picture matches best with the weather description - Night Time
+  // function to conditionally render whichever picture matches best with the weather description - Night Time
   function weatherImageNight(text) {
     console.log(text);
 
-    if (text.includes('clear') || text === 'Mostly clear' || text === 'Sunny' || text === 'Mostly sunny' || text === 'Hazy sunshine' || text === 'Partly sunny w/ flurries' || text === 'Clear'  ) { //sunny
+    if (text.includes('clear') || text === 'Mostly clear' || text === 'Sunny' || text === 'Mostly sunny' || text === 'Hazy sunshine' || text === 'Partly sunny w/ flurries' || text === 'Clear') { //sunny
       return moon;
     } if (text === 'Intermittent clouds' || text === 'Mostly cloudy' || text === 'Cloudy' || text === 'Dreary (Overcast)' || text === 'Flurries' || text === 'Mostly cloudy w/ flurries' || text === 'Snow' || text === 'Freezing rain' || text === 'Partly sunny') {     //cloudy
       return cloudy;
@@ -123,6 +144,36 @@ function HomePage() {
       <h1 className="welcomeUser">Welcome, {userLoggedIn.username} !</h1>
       {/* <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={fetchWeather}>Current Weather</Button> */}
       {/* <p>Current Temperature in {userLocInfo} :  {temperature} and {weatherText}</p> */}
+      <div>
+        {/* <Button variant="outlined" onClick={handleClickOpen}>
+          Open alert dialog
+        </Button> */}
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            {"No Weather Data?"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              This app uses an API to get the weather for you and has a limited amount of times it can retrieve that information.
+              <br />
+              If theres no weather data showing up for you, try again tomorrow, or contact me on LinkedIn and I can change the API key for you.
+              <br />
+              https://www.linkedin.com/in/mark-terry-168317230/
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            {/* <Button onClick={handleClose}>Disagree</Button> */}
+            <Button onClick={handleClose} autoFocus>
+              Sounds Good 👍
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
       <Grid container spacing={2} sx={{ width: '70%', height: '350px', margin: 'auto' }}>
         <Grid item xs={4} >
           <Tooltip title="Click me for an hourly cast !">
