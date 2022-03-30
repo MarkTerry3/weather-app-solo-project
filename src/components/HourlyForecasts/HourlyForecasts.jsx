@@ -22,9 +22,9 @@ function HourlyForecasts() {
     }
 
     // function used to test what the data was in the hourly reducer
-    // const hourlyText = () => {
-    //     console.log(hourly);
-    // }
+    const hourlyText = () => {
+        console.log(hourly);
+    }
 
 
     // convert epoch time to human readable
