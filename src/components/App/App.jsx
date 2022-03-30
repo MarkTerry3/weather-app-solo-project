@@ -11,8 +11,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
+// protected route, so someone who isnt logged in cant see things they shouldnt
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+// import all components
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../HomePage/HomePage';
@@ -28,8 +30,11 @@ import HourlyForecasts from '../HourlyForecasts/HourlyForecasts'
 import './App.css';
 
 function App() {
-  const dispatch = useDispatch();
 
+
+
+  const dispatch = useDispatch();
+  // so we know which user is logged in
   const user = useSelector(store => store.user);
 
   useEffect(() => {

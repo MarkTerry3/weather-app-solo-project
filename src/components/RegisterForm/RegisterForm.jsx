@@ -13,6 +13,7 @@ function RegisterForm() {
   const registerUser = (event) => {
     event.preventDefault();
 
+    // grabbing user data, and setting a reducer with this data
     dispatch({
       type: 'REGISTER',
       payload: {

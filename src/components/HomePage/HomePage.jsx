@@ -23,11 +23,11 @@ import moon from '../../weatherTextImages/clear.png';
 
 function HomePage() {
 
-
+// use this to set off the saga to GET weather data from the API
   useEffect(() => {
-    // dispatch({
-    //   type: 'SET_CURRENT_WEATHER'
-    // })
+    dispatch({
+      type: 'SET_CURRENT_WEATHER'
+    })
     console.log(userLoggedIn);
   }, [])
 
@@ -53,7 +53,7 @@ function HomePage() {
   const nightTemperature = useSelector(store => store.currentConditions.nightTimeTemperatureReducer)
 
 
-  // sets off a saga to GET our data from the API, then sets reducers with that data
+  // sets off a saga to GET our data from the API, then sets reducers with that data - used on a button to save the amount of GETS left with our API key
   const fetchWeather = () => {
 
     dispatch({
@@ -63,13 +63,13 @@ function HomePage() {
 
   // pushes you to the radarView page
   const radarView = () => {
-    console.log('you clicked radar view');
+    // console.log('you clicked radar view');
     history.push('/radar');
   }
 
   // pushes you to the hourly casts page
   const hourlyCast = () => {
-    console.log('you clicked hourly cast');
+    // console.log('you clicked hourly cast');
     history.push('/hourly');
   }
 
@@ -86,7 +86,7 @@ function HomePage() {
   };
 
 
-  // function to conditionally render whichever picture matches best with the weather description
+  // function to conditionally render whichever picture matches best with the weather description - Day Time
   function weatherImage(text) {
     console.log(text);
 
@@ -102,7 +102,7 @@ function HomePage() {
     }
   }
 
-
+// function to conditionally render whichever picture matches best with the weather description - Night Time
   function weatherImageNight(text) {
     console.log(text);
 
@@ -121,7 +121,7 @@ function HomePage() {
   return (
     <div className="container">
       <h1 className="welcomeUser">Welcome, {userLoggedIn.username} !</h1>
-      <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={fetchWeather}>Current Weather</Button>
+      {/* <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={fetchWeather}>Current Weather</Button> */}
       {/* <p>Current Temperature in {userLocInfo} :  {temperature} and {weatherText}</p> */}
       <Grid container spacing={2} sx={{ width: '70%', height: '350px', margin: 'auto' }}>
         <Grid item xs={4} >

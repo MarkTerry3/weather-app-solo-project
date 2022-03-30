@@ -14,16 +14,17 @@ function HourlyForecasts() {
 
 
     const history = useHistory();
-
     const hourly = useSelector(store => store.currentConditions.hourlyReducer)
 
+    // function to bring the user back to the home page when the Go Back button is clicked
     const goBack = () => {
         history.push('/home');
     }
 
-    const hourlyText = () => {
-        console.log(hourly);
-    }
+    // function used to test what the data was in the hourly reducer
+    // const hourlyText = () => {
+    //     console.log(hourly);
+    // }
 
 
     // convert epoch time to human readable
@@ -68,7 +69,7 @@ function HourlyForecasts() {
     }
 
 
-    // function for weatherText
+    // function to know which image to show on the DOM
     function weatherTextImage(text) {
         if (text === 'Sunny' || text === 'Mostly sunny' || text === 'Hazy sunshine' || text === 'Partly sunny w/ Flurries' || text === 'Clear' || text === 'Mostly clear') { //sunny
             return sunny;

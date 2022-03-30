@@ -59,12 +59,8 @@ function AccountPage() {
         history.push('/home');
     }
 
-    // // mui stuff you need for the modal
-    // const [open, setOpen] = React.useState(false);
-    // const handleOpen = () => setOpen(true);
-    // const handleClose = () => setOpen(false);
 
-    // // mui styling you need
+    // // mui styling for edit button
     const styleEdit = {
         position: 'absolute',
         top: '25%',
@@ -79,6 +75,7 @@ function AccountPage() {
         color: "black"
     };
 
+    // mui styling for delete button
     const styleDelete = {
         position: 'absolute',
         top: '35%',
@@ -93,7 +90,7 @@ function AccountPage() {
     };
 
     // ============================================================================================================================
-    // Stuff for Edit below
+    // Stuff for MUI Edit below
     // ============================================================================================================================
 
     const [openEdit, setOpenEdit] = React.useState(false);
@@ -108,7 +105,7 @@ function AccountPage() {
 
 
     // ============================================================================================================================
-    // Stuff for Delete below
+    // Stuff for MUI Delete below
     // ============================================================================================================================
 
 

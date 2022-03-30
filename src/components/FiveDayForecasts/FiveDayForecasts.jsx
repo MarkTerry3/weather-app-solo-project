@@ -23,6 +23,7 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
+// passing the 5day forecast as a prop
 function FiveDayForecast({ day }) {
     const [spacing, setSpacing] = React.useState(2);
 
@@ -38,20 +39,20 @@ function FiveDayForecast({ day }) {
 
     // function to conditionally render whichever picture matches best with the weather description
     function weatherImage(text) {
-        // 4 ifs
+
         // console.log(day);
-        console.log(text);
-        
-        if (text === 'Sunny' || text === 'Mostly sunny' || text === 'Hazy sunshine' || text === 'Partly sunny w/ flurries' || text === 'Clear' || text === 'Mostly clear') { //sunny
+        // console.log(text);
+
+        if (text === 'Sunny' || text === 'Mostly sunny' || text === 'Hazy sunshine' || text === 'Clear' || text === 'Mostly clear') { //sunny
             return sunny;
         } if (text === 'Intermittent clouds' || text === 'Windy' || text === 'Mostly cloudy' || text === 'Cloudy' || text === 'Dreary (Overcast)' || text === 'Flurries' || text === 'Mostly cloudy w/ flurries' || text === 'Freezing rain' || text === 'Partly sunny') {     //cloudy
             return cloudy;
         } if (text === 'Fog' || text === 'Mostly cloudy w/ snow' || text === 'Partly cloudy' || text === 'Intermittent clouds') {  //partly cloudy
             return mostlyCloudy;
-        } if (text === 'Showers' || text === 'Mostly cloudy w/ showers' || text === 'Partly sunny w/ showers' || text === 'T-storms' || text === 'Mostly cloudy w/ t-storms' || text === 'Partly sunny w/ t-storms' || text === 'Rain'  ||
-        text === 'Partly cloudy w/ showers' || text === 'Mostly cloudy w/ showers' || text === 'Partly cloudy w/ t-storms' || text === 'Mostly cloudy w/ t-storms' || text === 'Mostly cloudy w/ flurries' || text === 'Mostly cloudy w/ snow') { //rainy
+        } if (text === 'Showers' || text === 'Mostly cloudy w/ showers' || text === 'Partly sunny w/ showers' || text === 'T-storms' || text === 'Mostly cloudy w/ t-storms' || text === 'Partly sunny w/ t-storms' || text === 'Rain' ||
+            text === 'Partly cloudy w/ showers' || text === 'Mostly cloudy w/ showers' || text === 'Partly cloudy w/ t-storms' || text === 'Mostly cloudy w/ t-storms' || text === 'Mostly cloudy w/ flurries' || text === 'Mostly cloudy w/ snow') { //rainy
             return tstorms;
-        } if ( text === 'Ice' || text === 'Sleet' || text === 'Rain and snow'  || text === 'Snow') {
+        } if (text === 'Ice' || text === 'Sleet' || text === 'Rain and snow' || text === 'Snow' || text === 'Partly sunny w/ flurries' || text.includes('flurries')) {
             return snow;
         }
     }

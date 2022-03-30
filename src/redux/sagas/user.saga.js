@@ -24,7 +24,7 @@ function* fetchUser() {
   }
 }
 
-
+// delets the users account
 function* deleteAccount (action) {
   console.log('delete account now in USER SAGA', action.payload);
   try{

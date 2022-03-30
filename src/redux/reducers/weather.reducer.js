@@ -1,6 +1,9 @@
 import { combineReducers } from 'redux';
 
 
+// bunch of reducers, look in the sagas to see exactly which data their getting
+
+
 const currentTemp = (state = '', action) => {
     if (action.type === 'CURRENT_TEMP') {
         return action.payload;
