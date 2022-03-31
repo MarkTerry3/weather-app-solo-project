@@ -71,7 +71,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
                       weatherResponse.fiveDay = fiveDayResponse.data;
                       weatherResponse.userInfo = zipCodeResponse.data[0].LocalizedName;
                       weatherResponse.hourly = hourlyResponse.data;
-                      // apiOne ++;
+                      apiOne ++;
                       // console.log(apiOne);
                       res.send(weatherResponse);
                     })

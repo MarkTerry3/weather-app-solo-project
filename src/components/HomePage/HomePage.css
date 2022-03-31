@@ -83,3 +83,35 @@
 h4 {
      text-shadow: 2px 2px black;
 }
+
+
+.noWeatherButton {
+     align-items: center;
+     margin: auto;
+}
+
+
+.btnNoWeather {
+     margin-right: 0%;
+     margin-left: 40%;
+     margin-top: 20px;
+     width: 500px;
+     /* display: inline-block; */
+     padding: 10px 20px;
+     border-color: #014041;
+     border-width: 1px 1px 3px;
+     border-radius: 4px;
+     background-color: #aecaeb;
+     /* color: #f8f8f8; */
+     color: black;
+     font-size: 1.1rem;
+     font-family: 'Inter', sans-serif;
+     outline: 0;
+     cursor: pointer;
+}
+
+.btnNoWeather:hover {
+     background-color: #37485c;
+     text-decoration: none;
+     color: white;
+}

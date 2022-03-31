@@ -94,7 +94,7 @@ function HomePage() {
   //////////////////////////////////////////////
   // For MUI Pop up on page load below
   //////////////////////////////////////////////
-  const [open, setOpen] = React.useState(true);
+  const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -142,38 +142,8 @@ function HomePage() {
   return (
     <div className="container">
       <h1 className="welcomeUser">Welcome, {userLoggedIn.username} !</h1>
-      {/* <Button style={{ backgroundColor: "teal" }} variant="contained" onClick={fetchWeather}>Current Weather</Button> */}
+      {/* <Button style={{ backgroundColor: "#aecaeb" }} variant="contained" onClick={fetchWeather}>Current Weather</Button> */}
       {/* <p>Current Temperature in {userLocInfo} :  {temperature} and {weatherText}</p> */}
-      <div>
-        {/* <Button variant="outlined" onClick={handleClickOpen}>
-          Open alert dialog
-        </Button> */}
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">
-            {"No Weather Data?"}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              This app uses an API to get the weather for you and has a limited amount of times it can retrieve that information.
-              <br />
-              If theres no weather data showing up for you, try again tomorrow, or contact me on LinkedIn and I can change the API key for you.
-              <br />
-              https://www.linkedin.com/in/mark-terry-168317230/
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            {/* <Button onClick={handleClose}>Disagree</Button> */}
-            <Button onClick={handleClose} autoFocus>
-              Sounds Good 👍
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
       <Grid container spacing={2} sx={{ width: '70%', height: '350px', margin: 'auto' }}>
         <Grid item xs={4} >
           <Tooltip title="Click me for an hourly cast !">
@@ -225,6 +195,40 @@ function HomePage() {
         })}
       </Grid>
       {/* <img width="100px" src={require(dayImage)}/> */}
+      <div className="noWeatherButton">
+        <button
+          type="button"
+          className="btnNoWeather"
+          onClick={handleClickOpen}
+        >
+          No Weather Showing?
+        </button>
+        <Dialog
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            {"No Weather Data?"}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              This app uses an API to get the weather for you and has a limited amount of times it can retrieve that information.
+              <br />
+              If theres no weather data showing up for you, try again tomorrow, or contact me on LinkedIn and I can change the API key for you.
+              <br />
+              https://www.linkedin.com/in/mark-terry-168317230/
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            {/* <Button onClick={handleClose}>Disagree</Button> */}
+            <Button onClick={handleClose} autoFocus>
+              Sounds Good 👍
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
     </div>
   );
 }
