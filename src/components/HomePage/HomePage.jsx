@@ -216,9 +216,9 @@ function HomePage() {
             <DialogContentText id="alert-dialog-description">
               This app uses an API to get the weather for you and has a limited amount of times it can retrieve that information.
               <br />
-              If theres no weather data showing up for you, try again tomorrow, or contact me on LinkedIn and I can change the API key for you.
+              If theres no weather data showing up for you, try again tomorrow, or contact me on <a href="https://www.linkedin.com/in/mark-terry-168317230/"> LinkedIn</a> and I can change the API key for you.
               <br />
-              <a href="url">https://www.linkedin.com/in/mark-terry-168317230/</a>
+              
             </DialogContentText>
           </DialogContent>
           <DialogActions>
