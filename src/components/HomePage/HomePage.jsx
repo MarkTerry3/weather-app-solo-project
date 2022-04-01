@@ -218,7 +218,7 @@ function HomePage() {
               <br />
               If theres no weather data showing up for you, try again tomorrow, or contact me on LinkedIn and I can change the API key for you.
               <br />
-              https://www.linkedin.com/in/mark-terry-168317230/
+              <a href="url">https://www.linkedin.com/in/mark-terry-168317230/</a>
             </DialogContentText>
           </DialogContent>
           <DialogActions>
