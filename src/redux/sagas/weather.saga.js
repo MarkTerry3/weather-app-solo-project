@@ -10,14 +10,6 @@ function* getCurrentConditions() {
         // making our axios.get smaller by calling it response
         const response = yield axios.get('/api/weather');
 
-
-        // some console.logs used to make sure things were working correctly
-
-        // console.log('response.data is: ', response.data);
-        // console.log('fiveDay is: ', response.data.fiveDay.DailyForecasts); 
-        // console.log(response.data.conditions[0].Temperature.Imperial.Value);
-        // console.log('WeatherText is', response.data.conditions[0].WeatherText);
-
         // sagas to GET data from different end points from the API, which then get stored in a reducer
         yield put({type: 'CURRENT_TEMP', payload: response.data.conditions[0].Temperature.Imperial.Value})
         yield put({type: 'CURRENT_WEATHER_TEXT', payload: response.data.conditions[0].WeatherText})
@@ -50,11 +42,6 @@ function* sendUpdatedZip (action) {
         
     }
 }
-
-
-
-
-
 
 
 function* weatherSaga() {

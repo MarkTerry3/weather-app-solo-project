@@ -5,48 +5,10 @@ require('dotenv').config();
 const axios = require('axios');
 const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
-/**
- * GET route template
- */
 
-
-let apiOne = 0;
-let apiTwo = 0;
-let apiThree = 0;
-let apiFour = 0;
-let API_KEY;
 
 router.get('/', rejectUnauthenticated, (req, res) => {
   // GET route code here
-  // axios.get(`http://dataservice.accuweather.com/currentconditions/v1/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
-  //   .then((conditionsResponse) => {
-  //     axios.get(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/23977_PC?apikey=${process.env.ACCU_API_KEY}`)
-  //       .then((fiveDayResponse) => {
-  //         let weatherResponse = {}
-  //         weatherResponse.conditions = conditionsResponse.data;
-  //         weatherResponse.fiveDay = fiveDayResponse.data;
-  //         res.send(weatherResponse);
-  //       })
-  //   })
-
-// trying to get it to use a different api key every 50 GETs
-// function whichApiKey() {
-//   if (apiOne < 49) {
-//     API_KEY = ${process.env.YAHOO_ACCU_API_KEY};
-//     return;
-//   } if (apiTwo < 49) {
-//     API_KEY = ${process.env.MATT_ACCU_API_KEY};
-//     return;
-//   } if (apiThree < 49) {
-//     API_KEY = ${process.env.AOL_ACCU_API_KEY};
-//     return;
-//   } if (apiFour < 49) {
-//     API_KEY = ${process.env.GMAIL_API};
-//     return;
-//   }
-// }
-
-
   const user_id = req.user.id
   const queryText = `SELECT "zip_code"
   FROM "user"
@@ -71,7 +33,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
                       weatherResponse.fiveDay = fiveDayResponse.data;
                       weatherResponse.userInfo = zipCodeResponse.data[0].LocalizedName;
                       weatherResponse.hourly = hourlyResponse.data;
-                      apiOne ++;
+                      // apiOne ++;
                       // console.log(apiOne);
                       res.send(weatherResponse);
                     })
@@ -94,10 +56,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 // GET to hourly forecast
 // /forecasts/v1/hourly/12hour/23977_PC?apikey=3PH0Gj42GXqiPgI6T9IivsaAVsK5kczR
 
-
-
-
-
 // Current conditions - gives temperature and weather text
 //   `http://dataservice.accuweather.com/currentconditions/v1/${userLocationKey}?apikey=${process.env.ACCU_API_KEY}`
 
@@ -107,12 +65,6 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 // Zip Code Search to get location key
 //  `http://dataservice.accuweather.com//locations/v1/postalcodes/search?apikey=QhA9AaAIPHRajt8qDUyztjyMrrtednIR&q=55106
 //  `http://dataservice.accuweather.com//locations/v1/postalcodes/search?apikey=${process.env.ACCU_API_KEY}&q=${userZip}`
-
-
-
-
-
-
 
 
 
